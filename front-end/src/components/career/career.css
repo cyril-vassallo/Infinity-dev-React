@@ -1,0 +1,10 @@
+.career-banner {
+    opacity: 1;
+    display: flex;
+}
+
+.h2 {
+    align-self: center;
+    margin-top: 100px ;
+    color: beige;
+}

@@ -1,0 +1,12 @@
+
+#web-gl-scene {
+  display: block;
+  background-color: black;
+  background:url("/img/card/milkyway.jpg")  no-repeat center center;
+  background-size: cover;
+}
+
+.static-card img{
+  width:100%;
+
+}
