@@ -1,15 +1,21 @@
 import Conf from "../config/config-dev";
 
+
 /**
  * Request api's class
  */
-class FetchData {
+class FetchWeather {
   /**
    * @param {string} cityName
    * @param {string} stateCode
    * @param {string} units
    */
-  constructor(cityName = "paris", stateCode = "fr", units = "metric" , lang = "fr") {
+  constructor(
+    cityName = "paris",
+    stateCode = "fr",
+    units = "metric",
+    lang = "fr"
+  ) {
     this.url = Conf.api.weather.END_POINT;
     this.uri = Conf.api.weather.URI;
     this.appId = Conf.api.weather.APPID;
@@ -41,4 +47,4 @@ class FetchData {
   };
 
 }
-export default FetchData;
+export default FetchWeather;

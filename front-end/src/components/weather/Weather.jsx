@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FetchData from "../../services/FetchData";
+import FetchWeather from "../../services/FetchWeather";
 import "./weather.css";
 import Widget from "./widget/Widget";
 import Banner from "../partials/banner/Banner";
@@ -10,20 +10,20 @@ class Weather extends Component {
     super(props);
     this.state = {
       currentWeather: null,
-      fetchData : new FetchData("Paris"),
+      fetchWeather : new FetchWeather("Paris"),
       isLoading : false
     };
   }
 
   /**
-   * Launch fetchData onChange
+   * Launch fetchWeather onChange
    */
   handleChangeCity = ({target}) => {
     const city = target.value
     console.log("Dans handleChangeCity : ", city);
     const copyState = { ...this.state };
-    copyState.fetchData = new FetchData(city);
-    copyState.fetchData.getCurrentWeather(
+    copyState.fetchWeather = new FetchWeather(city);
+    copyState.fetchWeather.getCurrentWeather(
       this.successGetCurrentWeather,
       this.failedGetCurrentWeather
       );
