@@ -16,6 +16,11 @@ const Config = {
       END_POINT: "https://api-adresse.data.gouv.fr/",
       URI: "search/?",
     },
+    "map-quest": {
+      APPID: "6fd7XLunUyAuwQbnhF6f07cZYFxrXESu",
+      END_POINT: "http://www.mapquestapi.com/",
+      URI: "directions/v2/route?",
+    },
   },
 };
 export default Config;

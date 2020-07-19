@@ -60,3 +60,7 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+#map {
+  height: 180px;
+}
