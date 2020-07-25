@@ -5,7 +5,7 @@ import Portfolio from "./pages/portfolio/Portfolio";
 import Header from "./components/partials/header/Header";
 import Navigation from "./components/partials/nav/Navigation";
 import Footer from "./components/partials/Footer";
-import Downloads from "./pages/downloads/Downloads";
+//import Downloads from "./pages/downloads/Downloads";
 
 
 
@@ -18,7 +18,7 @@ function App() {
         <Header />
         <Switch>
           {/* de la route la plus spécifique à la plus générique */}
-          <Route path="/downloads" component={Downloads} />
+          {/* <Route path="/downloads" component={Downloads} /> */}
           <Route path="/" component={Portfolio} />
         </Switch>
         <Footer/>
