@@ -25,7 +25,7 @@ class Navigation extends Component {
       <div className="container-fluid" id="navbar">
         <div className="row">
           <NavLink to="/">Infinity Dev</NavLink>
-          <NavLink to="/downloads">Téléchargement</NavLink>
+          {/* <NavLink to="/downloads">Téléchargement</NavLink> */}
         </div>
       </div>
     );

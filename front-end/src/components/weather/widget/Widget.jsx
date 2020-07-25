@@ -33,7 +33,7 @@ function Widget ({city,main,weather,wind}) {
             <div className="col">
               <p>Humidité: {main.humidity} %</p>
               <p>Pression AT: {main.pressure} hPa</p>
-              <p>Vent: {wind.speed} mph</p>
+              <p>Vent: {parseInt(wind.speed)*3.6} km/h</p>
             </div>
           </div>
         </div>

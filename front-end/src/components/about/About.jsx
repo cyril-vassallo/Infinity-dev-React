@@ -15,7 +15,7 @@ class About extends Component {
             </h3>
             <h3 className="mt-5 text-primary">Profil</h3>
             <p>
-              J'ai pour vocation d'être développeur fullstack sur les languages
+              J'ai pour vocation d'être développeur fullstack sur les langages
               comme Javascript et PHP. Néanmoins un poste de développeur
               fullstack, front-end ou back-end uniquement est envisageable.
             </p>

@@ -1,0 +1,93 @@
+{
+  "synopsis": [
+    {
+      "title": "E-Learning - Mini CRM",
+      "path": "/img/products/auto-formations/crm.png",
+      "description": ""
+    },
+    {
+      "title": "E-Learning - Réservations",
+      "path": "/img/products/auto-formations/infinity-booking.png",
+      "description": ""
+    },
+    {
+      "title": "E-Learning - Réservations Administration",
+      "path": "/img/products/auto-formations/infinity-booking-admin.png",
+      "description": ""
+    },
+    {
+      "title": "Emity - Administration EManager",
+      "path": "/img/products/emity/admin-emity.png",
+      "description": ""
+    },
+    {
+      "title": "Emity - Widget Météo",
+      "path": "/img/products/emity/meteo.png",
+      "description": ""
+    },
+    {
+      "title": "Emity - Widget Flux RSS",
+      "path": "/img/products/emity/rss.png",
+      "description": ""
+    },
+    {
+      "title": "Emity - Choix des templates de publicité",
+      "path": "/img/products/emity/templates.png",
+      "description": ""
+    },
+    {
+      "title": "AFPA - Gestionnaire de questionnaires",
+      "path": "/img/products/rps/rps.jpg",
+      "description": ""
+    }
+  ],
+  "rps": [
+    {
+      "title": "",
+      "path": "/img/products/rps/rps.jpg",
+      "description": ""
+    },
+    {
+      "title": "Gestion des utilisateurs",
+      "path": "/img/products/rps/rps-administrateurs.jpg",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/rps/rps-connexion.jpg",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/rps/rps-code.jpg",
+      "description": ""
+    }
+  ],
+  "emity": [
+    {
+      "title": "",
+      "path": "/img/products/emity/admin-emity.png",
+      "description": ""
+    },
+    {
+      "title": "Flux RSS",
+      "path": "/img/products/emity/rss.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/emity/weather.png",
+      "description": ""
+    },
+    {
+      "title": "Api Info-transport",
+      "path": "/img/products/emity/info-transport.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/emity/templates.png",
+      "description": ""
+    }
+  ]
+}

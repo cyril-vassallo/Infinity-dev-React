@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import "./map.css";
 import "leaflet/dist/leaflet.css";
+import "./map.css";
 import FetchAutocomplete from "../../../services/FetchAutocomplete";
 import Leaflet from "leaflet";
 import FetchMapQuest from "../../../services/FetchMapQuest";
+import Conf from "../../../config/config-dev";
 
 class Map extends Component {
   constructor(props) {
@@ -12,6 +13,15 @@ class Map extends Component {
     this.autocomplete = new FetchAutocomplete();
     this.mapQuest = new FetchMapQuest();
     this.map = null;
+    this.longitude = 43.64;
+    this.latitude = 3.8635;
+    this.zipCode = null;
+    this.road = null;
+    this.city = null;
+    this.polylinePath = [];
+    this.state = {
+      route: null,
+    };
   }
 
   componentDidMount = () => {
@@ -19,19 +29,71 @@ class Map extends Component {
     document
       .getElementById("adresse")
       .addEventListener("input", this.autocompleteAdresse, false);
-    // this.map = Leaflet.map("map").setView([51.505, -0.09], 13);
-    // Leaflet.tileLayer(
-    //   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-    //   {
-    //     attribution:
-    //       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    //     maxZoom: 18,
-    //     id: "mapbox/streets-v11",
-    //     tileSize: 512,
-    //     zoomOffset: -1,
-    //     accessToken: "your.mapbox.access.token",
-    //   }
-    // ).addTo(this. map);
+    this.displayMap();
+    this.displayMarker("Point de départ: Résidence de Cyril");
+  };
+
+  displayMap = () => {
+    const token = Conf.api["map-box"].APPID;
+    this.map = Leaflet.map("map").setView([this.longitude, this.latitude], 13);
+    Leaflet.tileLayer(
+      `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}`,
+      {
+        attribution:
+          'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 20,
+        minZoom: 5,
+        id: "mapbox/streets-v11",
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: token,
+      }
+    ).addTo(this.map);
+  };
+
+  displayMarker = (
+    popup = "Marker",
+    color = "blue",
+    longitude = this.longitude,
+    latitude = this.latitude
+  ) => {
+    //delete original src from Leaflet icon in prototype
+    delete Leaflet.Icon.Default.prototype._getIconUrl;
+    //Load new icon in local leaflet bundle in module for different devices
+    Leaflet.Icon.Default.mergeOptions({
+      iconRetinaUrl: require(`leaflet/dist/images/marker-icon-2x-${color}.png`),
+      iconUrl: require(`leaflet/dist/images/marker-icon-${color}.png`),
+      shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+    });
+    const marker = Leaflet.marker([longitude, latitude]).addTo(this.map);
+    marker.bindPopup(popup).openPopup();
+  };
+
+  displayPolylinePath = () => {
+    // create a Blue polyline from an array of LatLng points
+    const polyline = Leaflet.polyline(this.polylinePath, {
+      color: "blue",
+    }).addTo(this.map);
+    // zoom the map to the polyline
+    this.map.fitBounds(polyline.getBounds());
+  };
+
+  fetchMapQuestSuccess = (shapePoints) => {
+    const newPolylinePath = [];
+    for (let i = 0; i < shapePoints.length; i += 2) {
+      newPolylinePath.push([shapePoints[i], shapePoints[i + 1]]);
+      if (i + 1 === shapePoints.length - 1) {
+        let destination = this.road + " " + this.zipCode + " " + this.city;
+        this.displayMarker(
+          destination,
+          "red",
+          shapePoints[i],
+          shapePoints[i + 1]
+        );
+      }
+    }
+    this.polylinePath = newPolylinePath;
+    this.displayPolylinePath();
   };
 
   autocompleteAdresse = async () => {
@@ -73,7 +135,7 @@ class Map extends Component {
         li.addEventListener("click", () => {
           document.getElementById("adresse").value =
             element.properties.name +
-            "\r\n" +
+            " " +
             element.properties.postcode +
             " " +
             element.properties.city;
@@ -93,14 +155,29 @@ class Map extends Component {
   };
 
   handleClickRoute = async () => {
-    let road = document.getElementById("resAdresse").value;
-    let zipCode = document.getElementById("CP").value;
-    let city = document.getElementById("Ville").value;
+    this.road = document.getElementById("resAdresse").value;
+    this.zipCode = document.getElementById("CP").value;
+    this.city = document.getElementById("Ville").value;
     try {
-      await this.mapQuest.getRoute(road, zipCode, city);
+      const data = await this.mapQuest.getRoute(
+        this.road,
+        this.zipCode,
+        this.city
+      );
+      this.displayNewRouteData(data);
+      const sessionId = data.route.sessionId;
+      console.log(sessionId);
+      await this.mapQuest.getShape(sessionId, this.fetchMapQuestSuccess);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  displayNewRouteData = ({ route }) => {
+    console.log(route);
+    const copyState = { ...this.state };
+    copyState.route = route;
+    this.setState(copyState);
   };
 
   render() {
@@ -108,16 +185,20 @@ class Map extends Component {
       <div className="container panel">
         <div className="row my-5 test ">
           <div className="col">
-            <h3 className="text-primary text-center">Widget Itinéra ire</h3>
+            <h3 className="text-primary text-center">Widget Itinéraire</h3>
+            <p className="my-5">
+              Leaflet, MapQuest et API Adresse.gouv une combinaison d'api et de
+              composants gratuits pour tracer vos itinéraires.
+            </p>
           </div>
         </div>
-        <div className="row my-5">
-          <div className="col-12">
+        <div className="row">
+          <div className="col">
             <p>Calculer l'itinéraire de chez moi à votre entreprise</p>
             <input
               className="form-control"
               type="text"
-              placeholder="Votre ville"
+              placeholder="Votre adresse"
               id="adresse"
             />
             <div
@@ -125,7 +206,22 @@ class Map extends Component {
               className="dropdown"
               style={{ display: "none" }}
             ></div>
-            <div className="sep"></div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col text-center">
+            <button
+              onClick={this.handleClickRoute}
+              className="btn btn-lg btn-success my-5"
+              type="button"
+            >
+              Calculer !
+            </button>
+          </div>
+        </div>
+        <div className="row ">
+          <div className="col-md-6 my-5">
+            <p>Itinéraire pour :</p>
             <label htmlFor="resAdresse">Adresse :</label>
             <input
               className="form-control"
@@ -137,16 +233,15 @@ class Map extends Component {
             <input className="form-control" type="text" id="CP" disabled />
             <label htmlFor="Ville">Ville :</label>
             <input className="form-control" type="text" id="Ville" disabled />
-            <div className="sep"></div>
-            <button
-              onClick={this.handleClickRoute}
-              className="btn btn-success my-5"
-              type="button"
-            >
-              Calculer !
-            </button>
+            {this.state.route && (
+              <p className="text-success my-3">
+                Il me faudra parcourir{" "}
+                <b>{Math.trunc(this.state.route.distance * 1.60934)} Km</b> en
+                voiture pour me rendre à votre entreprise.
+              </p>
+            )}
           </div>
-          <div className="col" id="map"></div>
+          <div className="col-md-6" id="map"></div>
         </div>
       </div>
     );

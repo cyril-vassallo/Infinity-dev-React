@@ -16,7 +16,7 @@ class FetchAutoComplete {
         else throw new Error("Problème de réponse ", response);
       })
       .then((data) => {
-        console.log("Data: ", data);
+        //console.log("Data: ", data);
         displaySelection(data);
       });
   };
