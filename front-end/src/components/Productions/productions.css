@@ -1,11 +1,12 @@
 .products .presentation {
-  width: 70%;
+  width: 60%;
   height: 800px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .products .presentation {
     width: 100%;
-    height: unset;
+    height: 380px;
+    padding: 0px
   }
 }

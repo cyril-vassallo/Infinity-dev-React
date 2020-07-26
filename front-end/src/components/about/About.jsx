@@ -8,7 +8,7 @@ class About extends Component {
       <div className="about container mt-5" id="about">
         <div className="row my-5">
           <div className="col mb-5">
-            <h3 className="my-5">
+            <h3 className="my-5 introduction">
               Développeur web fullstack, je m’appuie sur les frameworks Symfony,
               Nest.js, la librairie React et le langage SQL. Je suis doté d’une
               grande autonomie et du sens du code organisé.
@@ -16,8 +16,7 @@ class About extends Component {
             <h3 className="mt-5 text-primary">Profil</h3>
             <p>
               J'ai pour vocation d'être développeur fullstack sur les langages
-              comme Javascript et PHP. Néanmoins un poste de développeur
-              fullstack, front-end ou back-end uniquement est envisageable.
+              comme Javascript et PHP. Je suis ouvert aux propositions en frontend, backend ou fullstack. 
             </p>
             <h3 className="mt-5 text-primary">Préférences</h3>
             <p>
@@ -30,22 +29,21 @@ class About extends Component {
               >
                 niveau II
               </span>{" "}
-              equivalent Licence/Master. Je me suis orienté naturellement vers
-              la maîtrise du framework Symfony 4 et de la librairie React. Je
+              équivalente Licence/Master. Je me suis orienté naturellement vers
+              la maîtrise du framework Symfony, la librairie React et très récemment Nest avec node.js. Je
               suis également ouvert aux autres frameworks PHP et Javascript du
               marché avec ou sans ORM.
             </p>
             <h3 className="mt-5 text-primary">Niveau</h3>
             <p>
-              Je développe depuis déja deux ans. Depuis, j'ai atteint un niveau
-              suffisant pour être en autonomie au sein d'une équipe de
-              développeur. Je suis formé aux technologies front-end et back-end
-              en Javascript et PHP. Mon cursus de formation est terminé. Je suis
-              capable de concevoir, développer et deployer un projet de a à z.
-              Je peux intervenir sur le front-end en React ou bien sur le
-              back-end sur Symfony ou Nest.
+              Je développe depuis deux ans. Ainsi, je suis très autonome
+              et j'espère pouvoir rejoindre une équipe de développeur. 
+              Je suis formé aux technologies frontend et backend
+              en Javascript et PHP. Je suis aussi capable de concevoir, développer et deployer un projet de a à z.
+              Je peux intervenir sur du frontend en React et sur du
+              backend sur Symfony 4/5 ou Nest.
             </p>
-            <h3 className="mt-5 text-primary">Détail des compétences</h3>
+            {/* <h3 className="mt-5 text-primary">Détail des compétences</h3>
             <p>
               J'ai mis à disposition à cette adresse, rubrique{" "}
               <a href="/downloads">Téléchargement</a>, un dossier personnel de
@@ -53,7 +51,7 @@ class About extends Component {
               ou collaborateurs(trices) expérimenté(e)s dans le développement de
               se faire une idée de mon expérience dans le domaine. Un CV y est
               également téléchargeable.
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

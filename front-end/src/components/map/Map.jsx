@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "leaflet/dist/leaflet.css";
 import "./map.css";
-import FetchAutocomplete from "../../../services/FetchAutocomplete";
+import FetchAutocomplete from "../../services/FetchAutocomplete";
 import Leaflet from "leaflet";
-import FetchMapQuest from "../../../services/FetchMapQuest";
-import Conf from "../../../config/config-dev";
+import FetchMapQuest from "../../services/FetchMapQuest";
+import Conf from "../../config/config-dev";
 
 class Map extends Component {
   constructor(props) {
@@ -183,18 +183,21 @@ class Map extends Component {
   render() {
     return (
       <div className="container panel">
-        <div className="row my-5 test ">
+        <div className="row my-5">
           <div className="col">
-            <h3 className="text-primary text-center">Widget Itinéraire</h3>
+            <h3 className="text-primary">Widget Itinéraire</h3>
             <p className="my-5">
-              Leaflet, MapQuest et API Adresse.gouv une combinaison d'api et de
+              Leaflet, MapQuest et l'API adresse.gouv une combinaison d'api et de
               composants gratuits pour tracer vos itinéraires.
             </p>
           </div>
         </div>
-        <div className="row">
+        <div className="row my-5">
           <div className="col">
-            <p>Calculer l'itinéraire de chez moi à votre entreprise</p>
+            <p>
+              Utilisez le champ d'autocomplétion pour tracer un itinéraire de
+              chez moi à votre entreprise
+            </p>
             <input
               className="form-control"
               type="text"
@@ -208,31 +211,38 @@ class Map extends Component {
             ></div>
           </div>
         </div>
-        <div className="row">
-          <div className="col text-center">
+        <div className="row ">
+          <div className="col-md-4  m-1 text-center bg-light card">
+            <p>Itinéraire pour :</p>
+            <input
+              className="form-control my-3"
+              type="text"
+              id="resAdresse"
+              placeholder="adresse"
+              disabled
+            />
+            <input
+              className="form-control my-3"
+              type="text"
+              id="CP"
+              placeholder="code postal"
+              disabled
+            />
+
+            <input
+              className="form-control my-3 "
+              type="text"
+              id="Ville"
+              placeholder="ville"
+              disabled
+            />
             <button
               onClick={this.handleClickRoute}
               className="btn btn-lg btn-success my-5"
               type="button"
             >
-              Calculer !
+              Afficher le tracer !
             </button>
-          </div>
-        </div>
-        <div className="row ">
-          <div className="col-md-6 my-5">
-            <p>Itinéraire pour :</p>
-            <label htmlFor="resAdresse">Adresse :</label>
-            <input
-              className="form-control"
-              type="text"
-              id="resAdresse"
-              disabled
-            />
-            <label htmlFor="CP">Code Postal :</label>
-            <input className="form-control" type="text" id="CP" disabled />
-            <label htmlFor="Ville">Ville :</label>
-            <input className="form-control" type="text" id="Ville" disabled />
             {this.state.route && (
               <p className="text-success my-3">
                 Il me faudra parcourir{" "}
@@ -241,7 +251,7 @@ class Map extends Component {
               </p>
             )}
           </div>
-          <div className="col-md-6" id="map"></div>
+          <div className="col m-1 card" id="map"></div>
         </div>
       </div>
     );

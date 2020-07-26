@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import FetchWeather from "../../services/FetchWeather";
 import "./weather.css";
 import Widget from "./widget/Widget";
-import Banner from "../partials/banner/Banner";
 import Loader from "../loader/Loader";
 
 class Weather extends Component {
@@ -60,14 +59,13 @@ class Weather extends Component {
 
   render() {
     return (
-      <div className="weather">
-        <Banner title="Widget Météo" background="background-4.jpg" />
-        <div className="container">
+        <div className="container weather ">
           <div className="row mt-5">
             <div className="col-md mb-5">
               <h3 className="text-primary">Widget Météo</h3>
               <p className="text-secondary">
-                Choisissez une ville pour obtenir la météo des 3 prochaines heures.
+                Choisissez une ville pour obtenir la météo des 3 prochaines
+                heures.
               </p>
               <select
                 id="city"
@@ -97,7 +95,6 @@ class Weather extends Component {
             )}
           </div>
         </div>
-      </div>
     );
   }
 }

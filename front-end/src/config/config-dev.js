@@ -1,5 +1,5 @@
 /**
- *APP CONFIG - CRÉER UN FICHIER DIFFÉRENT POUR LA PROD
+ *APP CONFIG - FRONTEND
  */
 var location = window.location;
 var domaine = location.protocol + "//" + location.hostname + "/";

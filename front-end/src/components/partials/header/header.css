@@ -1,6 +1,8 @@
 .header {
   background-image: url("/img/banners/background.jpg");
   background-color: #282c34;
+  background-attachment: fixed;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,5 +40,8 @@
 @media screen and (max-width: 425px) {
   .header h2 {
     font-size: 3rem;
+  }
+    .header h3 {
+    font-size: 1.5rem;
   }
 }

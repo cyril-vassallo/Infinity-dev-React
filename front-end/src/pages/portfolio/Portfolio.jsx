@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Skills from './../../components/skills/Skills'
 import Career from './../../components/career/Career';
 import Contact from './../../components/contact/Contact';
-import Weather from '../../components/weather/Weather';
 import About from '../../components/about/About';
+import Widgets from '../../components/widgets/Widgets';
 import Productions from './../../components/Productions/Productions';
 import './portfolio.css'
 
@@ -16,7 +16,7 @@ class Portfolio extends Component {
             <Career />
             <Skills />
             <Productions/>
-            <Weather />
+            <Widgets/>
             <Contact />
           </main>
         );

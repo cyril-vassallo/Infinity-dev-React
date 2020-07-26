@@ -54,13 +54,6 @@ body {
   margin-top: 20px;
 }
 
-.test {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 #map {
   height: 500px;
 }

@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import {openFullscreen, closeFullscreen} from "./../../services/utils"
 
 class Player extends Component {
-  state = {
-    audioElement: new Audio("media/music/Plongee-Nocturne.mp3"),
-    isPlaying: false,
-  };
+  constructor(){
+    super()
+    this.state = {
+      audioElement: new Audio("media/music/Plongee-Nocturne.mp3"),
+      isPlaying: false,
+    };
+  }
+ 
 
   componentDidMount = () => {
     if (this.state.isPlaying) {
@@ -13,6 +18,7 @@ class Player extends Component {
   };
 
   handleClickStopMusic = () => {
+    closeFullscreen();
     this.state.audioElement.pause();
     const copyState = { ...this.state };
     copyState.isPlaying = false;
@@ -20,11 +26,14 @@ class Player extends Component {
   };
 
   handleClickPayMusic = () => {
+    openFullscreen();
     this.state.audioElement.play();
     const copyState = { ...this.state };
     copyState.isPlaying = true;
     this.setState(copyState);
   };
+
+
 
   render() {
     return (
@@ -34,14 +43,14 @@ class Player extends Component {
             className="btn btn-lg btn-danger"
             onClick={this.handleClickStopMusic}
           >
-            Arrêter la musique
+            Arrêter le Mode immersion
           </button>
         ) : (
           <button
             className="btn btn-lg btn-success"
             onClick={this.handleClickPayMusic}
           >
-            Jouer la musique
+            Mode immersion
           </button>
         )}
       </div>

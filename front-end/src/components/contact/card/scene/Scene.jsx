@@ -225,8 +225,9 @@ class Scene extends Component {
         {this.state.isMobileDevice && (
           <div className="container static-card">
             <div className="row">
-              <div className="col">
+              <div className="col text-center">
                   <img src="img/card/card.jpg" alt="carte de visite"/>
+                  <p className="text-danger message">Les effets 3D sont désactivé, l'affichage n'est pas optimale sur votre écran</p>
               </div>
             </div>
           </div>

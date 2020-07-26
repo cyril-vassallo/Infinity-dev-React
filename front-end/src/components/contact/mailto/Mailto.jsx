@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './mailto.css';
 
 class Mailto extends Component {
   state = {
@@ -22,15 +23,28 @@ class Mailto extends Component {
                 <h5 className="card-title">Contactez moi</h5>
               </div>
               <div className="card-body">
-                <p className="card-text text-center">
-                  Vous pouvez me joindre par mail en utilisant votre client mail
-                </p>
-                <button
-                  onClick={this.handleClickForm}
-                  className="btn btn-lg btn-primary text-center"
-                >
-                  Me Contacter !
-                </button>
+                <div className="row">
+                  <div className="col-md-6">
+                    <p className="card-text text-center">Par mail:</p>
+                    <p>
+                      <img src="img/arobase.png" alt="" className="flat-icon" />{" "}
+                      <em className="text-success">cyrilvssll34@gmail.com</em>
+                    </p>
+                  </div>
+                  <div className="col">
+                    <p>Sur linkedIn:</p>
+                    <p>
+                      <img
+                        className="flat-icon"
+                        src="img/linkedin.png"
+                        alt=""
+                      />{" "}
+                      <a href="https://www.linkedin.com/in/cyril-vassallo/">
+                        Cyril Vassallo
+                      </a>
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className="card-footer text-muted text-center">
                 Les données saisies ne peuvent être utilisées à des fins

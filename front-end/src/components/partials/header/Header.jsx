@@ -17,7 +17,7 @@ class Header extends Component {
               <div className="col">
                 <h2>Cyril VASSALLO</h2>
                 <h3 className="text-center text-primary">
-                  Développeur web Javascript - PHP Fullstack
+                  Développeur web <br/>Javascript - PHP Fullstack
                 </h3>
               </div>
             </div>
