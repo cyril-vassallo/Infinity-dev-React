@@ -166,7 +166,6 @@ class Map extends Component {
       );
       this.displayNewRouteData(data);
       const sessionId = data.route.sessionId;
-      console.log(sessionId);
       await this.mapQuest.getShape(sessionId, this.fetchMapQuestSuccess);
     } catch (error) {
       console.log(error);
@@ -174,7 +173,6 @@ class Map extends Component {
   };
 
   displayNewRouteData = ({ route }) => {
-    console.log(route);
     const copyState = { ...this.state };
     copyState.route = route;
     this.setState(copyState);

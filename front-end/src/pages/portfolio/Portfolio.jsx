@@ -5,6 +5,7 @@ import Contact from './../../components/contact/Contact';
 import About from '../../components/about/About';
 import Widgets from '../../components/widgets/Widgets';
 import Productions from './../../components/Productions/Productions';
+import Header from '../../components/partials/header/Header';
 import './portfolio.css'
 
 class Portfolio extends Component {
@@ -12,11 +13,12 @@ class Portfolio extends Component {
     render() {
         return (
           <main className="portfolio">
-            <About/>
+            <Header/>
+            <About />
             <Career />
             <Skills />
-            <Productions/>
-            <Widgets/>
+            <Productions />
+            <Widgets />
             <Contact />
           </main>
         );

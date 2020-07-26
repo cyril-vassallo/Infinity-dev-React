@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Banner from "../partials/banner/Banner";
-import Card3d from "./card/Card3d";
+import Card3d from "../card3d/Card3d";
 import "./contact.css";
 import Mailto from "./mailto/Mailto";
 

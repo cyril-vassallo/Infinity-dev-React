@@ -22,7 +22,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
       },
       "map-quest": {
         APPID: "6fd7XLunUyAuwQbnhF6f07cZYFxrXESu",
-        END_POINT: "http://www.mapquestapi.com/",
+        END_POINT: "https://www.mapquestapi.com/",
         URI_ROUTE: "directions/v2/route?",
         URI_SHAPE: "directions/v2/routeshape?",
       },

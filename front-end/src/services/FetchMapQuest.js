@@ -43,7 +43,7 @@ class FetchMapQuest {
         else throw new Error("Problème de réponse ", response);
       })
       .then((data) => {
-        console.log("Data: ", data);
+        //console.log("Data: ", data);
         fetchMapQuestSuccess(data.route.shape.shapePoints);
       });
   };

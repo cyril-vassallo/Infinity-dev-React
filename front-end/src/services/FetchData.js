@@ -5,8 +5,8 @@ import Conf from "../config/config-dev";
  * Request json data from public
  */
 class FetchData {
-  getData = (fetchSuccess) => {
-    let query = `${Conf.app.DOMAINE}data/productions.json`;
+  getData = (fetchSuccess, fileName = "productions") => {
+    let query = `${Conf.app.DOMAINE}data/${fileName}.json`;
 
     return fetch(query)
       .then((response) => {

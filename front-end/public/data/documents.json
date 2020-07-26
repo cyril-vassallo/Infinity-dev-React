@@ -1,0 +1,25 @@
+{
+  "documents": [
+    {
+      "title": "CV générique",
+      "fileName": "cv-cyril-2020.pdf",
+      "miniature" : "mini-cv.png",
+      "type": "application/pdf",
+      "description": "Vous pouvez télécharger mon cv au format pdf et le partager avec vos collaborateurs"
+    },
+    {
+      "title": "Référentiel emploi activité compétences CDA",
+      "fileName": "reac-titre-cda.pdf",
+      "miniature": "mini-reac.png",
+      "type": "application/pdf",
+      "description": "Toutes les questions que vous vous posez sur le contenu et le niveau de compétence du titre professionnel Concepteur Développeur d'Application sont détaillés dans ce référentiel"
+    },
+    {
+      "title": "Livré de formation Diginamic JS fullstack",
+      "fileName": "formation-js-fullstack.pdf",
+      "miniature": "mini-diginamic.png",
+      "type": "application/pdf",
+      "description": "Livré de présentation de la formation Javascript Fullstack. Cette formation aborde le sujets du paradigme fonctionnel et l'asynchrone de Javascript, l'Intégration web, React, Node.js, Express, Nest, base de données PostgreSQL, l'architecture API REST et enfin l'accessibilité et l'UX/UI."
+    }
+  ]
+}
