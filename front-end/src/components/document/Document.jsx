@@ -1,40 +1,33 @@
-import React from 'react';
-
+import React from "react";
+import "./document.css";
 
 function Document(props) {
-    return (
-      <div className="container my-5">
-        <div className="row">
-          <div className="col">
-            <h3 className="text-success">{props.document.title}</h3>
-          </div>
-        </div>
-        <div className="row my-5 document">
-          <div className="col-md-6 my-3">
-           <img src={"img/miniatures/"+ props.document.miniature} alt=""/>
-          </div>
-          <div className="col-md-6 my-3">
-            <div className="row description">
-              <div className="col">
-                <p>{props.document.description}</p>
-              </div>
-            </div>
-            <div className="row self-end">
-              <div className="col text-center">
-                <a
-                  href={"documents/" + props.document.fileName}
-                  className="btn btn-lg btn-success"
-                  type="button"
-                >
-                  Consulter !
-                </a>
-              </div>
-            </div>
-          </div>
+  return (
+    <div className="container document my-5">
+      <div className="row">
+        <div className="col title text-center">
+          <h3>{props.document.title}</h3>
         </div>
       </div>
-    );
-    
+      <div className="row my-5">
+        <div className="col my-3 text-center">
+          <img src={"img/miniatures/" + props.document.miniature} alt="" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col my-3 text-center description">
+          <p>{props.document.description}</p>
+          <a
+            href={"documents/" + props.document.fileName}
+            className="btn btn-lg btn-success"
+            type="button"
+          >
+            Consulter !
+          </a>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Document;

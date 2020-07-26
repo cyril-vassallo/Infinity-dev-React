@@ -210,7 +210,9 @@ class Scene extends Component {
         //this.scene.dispose();
         //this.renderer.render(this.scene, this.camera);
         const webGLScene = document.querySelector("#web-gl-scene");
-        webGLScene.remove();  
+        if(webGLScene){
+          webGLScene.remove();  
+        }
         const copyState = { ...this.state };
         copyState.isMobileDevice = true; 
         this.setState(copyState);
