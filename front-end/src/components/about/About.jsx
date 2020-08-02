@@ -6,12 +6,12 @@ class About extends Component {
   state = {};
   render() {
     return (
-      <div className="about mt-5" id="about">
+      <div className="about container mt-5" id="about">
         <div className="row my-5">
           <div className="col mb-5">
             <h3 className="my-5 introduction">
               Développeur web fullstack, je m’appuie sur les frameworks Symfony,
-              Nest.js, la librairie React et le langage SQL. Je suis doté d’une
+              la librairie React et le langage SQL. Je suis doté d’une
               grande autonomie et du sens du code organisé.
             </h3>
             <h3 className="mt-5 text-primary">Profil</h3>

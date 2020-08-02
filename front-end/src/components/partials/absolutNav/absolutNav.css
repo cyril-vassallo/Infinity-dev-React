@@ -1,12 +1,11 @@
 .subNav {
-  padding: 5vh 0 0 0!important;
-  display: flex;
   position: fixed;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.95);
-  padding:25px 25px 25px 0 ;
-
-  z-index:5001;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 5001;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Chrono  */
@@ -29,6 +28,7 @@
 }
 
 .subNav .box1 .pipe {
+  margin:auto;
   background-color: white;
   width: 5px;
   height: 45px;
@@ -43,11 +43,6 @@
   width: 35px;
   border-radius: 50%;
 }
-
-/* 
-.subNav .box1 .subCircle:hover {
-  background: linear-gradient(green, white);
-} */
 
 .subNav .box1 .subCircleActive {
   display: flex;
@@ -88,6 +83,57 @@
   height: 40px;
   font-weight: bolder;
 }
+
+.subNav .close {
+  padding: 0;
+  width: 60px;
+  margin: 60px;
+}
+
+.subNav .box {
+  display: flex;
+}
+
+.arrow {
+  padding-left: 10px;
+  width: auto;
+  color: rgba(255, 255, 255, 0.85);
+  position: fixed;
+  z-index: 5002;
+
+}
+
+.arrow:hover {
+  font-weight: 600;
+  color: white;
+}
+
+.arrow img {
+  width: 10px;
+}
+
+
+@media screen and (max-width: 425px) {
+
+  .subNav .close {
+    padding: 0;
+    width: 40px;
+    margin: 5px;
+  }
+
+  .arrow {
+    background-color: rgba(0, 0, 0, 0.90);
+    color: white;
+    min-width:100%;
+  }
+
+  .arrow:hover {
+    font-size: bolder;
+  }
+
+
+}
+
 
 /* Burger */
 /* 

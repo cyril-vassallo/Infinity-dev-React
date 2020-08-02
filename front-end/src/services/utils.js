@@ -30,7 +30,7 @@ export const fadeOutEffect = (fadeTarget, time = 20) => {
  */
 export function fadeInEffect(fadeTarget, time=25) {
   fadeTarget.style.opacity = 0;
-  fadeTarget.style.display = "flex  ";
+  fadeTarget.style.display = "flex";
   let i = 0;
   fadeIn(fadeTarget, i);
   function fadeIn(fadeTarget, i) {

@@ -31,7 +31,7 @@ class Planet extends Component {
    */
   init = () => {
     const fos = 50;
-    const ratio = window.innerWidth / (window.innerHeight / 2);
+    const ratio = (window.innerWidth) / (window.innerHeight / 2);
     const near = 0.1;
     const far = 200000;
     this.camera = new THREE.PerspectiveCamera(fos, ratio, near, far);

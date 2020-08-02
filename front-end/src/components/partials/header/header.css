@@ -39,9 +39,9 @@
 
 @media screen and (max-width: 425px) {
   .header h2 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
     .header h3 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 }

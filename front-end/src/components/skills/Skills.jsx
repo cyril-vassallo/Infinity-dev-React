@@ -6,7 +6,7 @@ import Technologies from './technologies/Technologies'
 class Skills extends Component {
   render() {
     return (
-      <div className="skills" id="skills">
+      <div className="skills container-fluid" id="skills">
         <div className="row">
             <Banner
                 title="Développement"

@@ -48,7 +48,7 @@ class Scene extends Component {
       antialias: true,
       alpha: true,
     });
-    this.renderer.setSize(window.innerWidth, (window.innerHeight/2));
+    this.renderer.setSize(window.innerWidth-25, (window.innerHeight/2));
     this.renderer.setPixelRatio(window.devicePixelRatio);
 
     this.canvas = document.querySelector("#web-gl-scene");

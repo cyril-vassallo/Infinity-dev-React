@@ -5,11 +5,11 @@ import "./navigation.css";
 class Navigation extends Component {
   constructor(props) {
     super(props);
-    this.handleScroll = window.addEventListener("scroll", this.scrollFunction);
+    this.handleScroll = null;
     this.prevScrollPos = window.pageYOffset;
   }
 
-  scrollFunction = () => {
+  handleScrollFunction = () => {
     let currentScrollPos = window.pageYOffset;
     if (this.prevScrollPos > currentScrollPos) {
       document.getElementById("navbar").style.top = "0";
@@ -20,13 +20,26 @@ class Navigation extends Component {
     this.prevScrollPos = currentScrollPos;
   };
 
+  componentDidMount = () => {
+    this.handleScroll = window.addEventListener(
+      "scroll",
+      this.handleScrollFunction
+    );
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("scroll", this.handleScrollFunction, {
+      passive: true,
+    });
+  };
+
   render() {
     return (
-      <nav className="container-fluid" id="navbar">
+      <nav className="container" id="navbar">
         <div className="row">
           <NavLink to="/">Infinity Dev</NavLink>
           <NavLink to="/downloads">Téléchargement</NavLink>
-        </div>  
+        </div>
       </nav>
     );
   }
