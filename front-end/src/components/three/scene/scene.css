@@ -1,0 +1,9 @@
+
+#web-gl-scene {
+  background:url("/img/card/milkyway.jpg")  no-repeat center center;
+  background-size: cover;
+}
+
+.scene{
+  padding: 0;
+}

@@ -22,12 +22,12 @@ class Navigation extends Component {
 
   render() {
     return (
-      <div className="container-fluid" id="navbar">
+      <nav className="container-fluid" id="navbar">
         <div className="row">
           <NavLink to="/">Infinity Dev</NavLink>
           <NavLink to="/downloads">Téléchargement</NavLink>
         </div>  
-      </div>
+      </nav>
     );
   }
 }

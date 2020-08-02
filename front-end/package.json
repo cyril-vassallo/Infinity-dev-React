@@ -13,10 +13,12 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-iframe": "^1.8.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "slugify": "^1.4.4",
-    "three": "^0.118.3"
+    "three": "^0.118.3",
+    "typewriter-effect": "^2.13.1"
   },
   "scripts": {
     "start": "react-scripts start",

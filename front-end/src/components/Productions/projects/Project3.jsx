@@ -1,5 +1,6 @@
 import React from "react";
 import Spacer from "../../partials/spacer/Spacer";
+import YoutubePlayer from "../../players/video/YoutubePlayer";
 
 function Project3() {
     return (
@@ -43,11 +44,10 @@ function Project3() {
             </ul>
           </div>
           <div className="col-md-6">
-            <h5 className="text-success">Archives</h5>
-            <video controls>
-              <source src="media/infinity-dev-v1.mp4" type="video/webm" />
-              Sorry, your browser doesn't support embedded videos.
-            </video>
+            <YoutubePlayer
+              title="Archives"
+              url="https://www.youtube.com/embed/c9_eFc9B_8c"
+            />
           </div>
         </div>
         <Spacer spacerNumber="3" />
@@ -57,3 +57,4 @@ function Project3() {
 }
 
 export default Project3;
+

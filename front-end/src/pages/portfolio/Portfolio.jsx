@@ -6,14 +6,17 @@ import About from '../../components/about/About';
 import Widgets from '../../components/widgets/Widgets';
 import Productions from './../../components/Productions/Productions';
 import Header from '../../components/partials/header/Header';
+import AbsolutNav from './../../components/partials/absolutNav/AbsolutNav';
 import './portfolio.css'
+
 
 class Portfolio extends Component {
     state = {  }
     render() {
         return (
           <main className="portfolio">
-            <Header/>
+            <AbsolutNav/>
+            <Header />
             <About />
             <Career />
             <Skills />

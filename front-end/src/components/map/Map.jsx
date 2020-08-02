@@ -193,8 +193,8 @@ class Map extends Component {
         <div className="row my-5">
           <div className="col">
             <p>
-              Utilisez le champ d'autocomplétion pour tracer un itinéraire de
-              chez moi à votre entreprise
+              Utilisez le champ d'autocomplétion pour tracer les itinéraires de
+              chez moi à vos établissements d'entreprise.
             </p>
             <input
               className="form-control"

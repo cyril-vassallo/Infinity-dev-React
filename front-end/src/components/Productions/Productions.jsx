@@ -35,7 +35,7 @@ class Productions extends Component {
 
   render() {
     return (
-      <div className="products">
+      <div className="productions" id="productions">
         <Banner
           title="Portfolio des productions"
           background="background-9.jpg"

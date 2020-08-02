@@ -17,12 +17,10 @@ function Document(props) {
       <div className="row">
         <div className="col my-3 text-center description">
           <p>{props.document.description}</p>
-          <a
-            href={"documents/" + props.document.fileName}
-            className="btn btn-lg btn-success"
-            type="button"
-          >
-            Consulter !
+          <a href={"documents/" + props.document.fileName}>
+            <button className="btn btn-lg btn-primary" type="button">
+              Consulter !
+            </button>
           </a>
         </div>
       </div>

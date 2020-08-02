@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./about.css";
+import { NavLink } from "react-router-dom";
 
 class About extends Component {
   state = {};
   render() {
     return (
-      <div className="about container mt-5" id="about">
+      <div className="about mt-5" id="about">
         <div className="row my-5">
           <div className="col mb-5">
             <h3 className="my-5 introduction">
@@ -16,15 +17,15 @@ class About extends Component {
             <h3 className="mt-5 text-primary">Profil</h3>
             <p>
               J'ai pour vocation d'être développeur fullstack sur les langages
-              Javascript et PHP. Je suis ouvert aux propositions de
-              mission en frontend, backend ou fullstack.
+              Javascript et PHP. Je suis ouvert aux propositions de mission en
+              frontend, backend ou fullstack.
             </p>
             <h3 className="mt-5 text-primary">Préférences</h3>
             <p>
               Je suis passionné en développement web. J'ai acquis une solide
               base de douze mois de pratique de PHP, JavaScript et SQL durant ma
-              formation intensive de Concepteur et Développeur d'Application. Je me suis
-              orienté vers la maîtrise du framework Symfony, la
+              formation intensive de Concepteur et Développeur d'Application. Je
+              me suis orienté vers la maîtrise du framework Symfony, la
               librairie React et très récemment Nest avec node.js. Je suis
               également ouvert aux autres frameworks PHP et Javascript du marché
               avec ou sans ORM.
@@ -53,8 +54,9 @@ class About extends Component {
             <h3 className="mt-5 text-primary">Détails</h3>
             <p>
               J'ai mis à disposition en rubrique{" "}
-              <a href="/downloads">Téléchargement</a> un cv au format pdf et
-              d'autres documents pour illustrer mon parcours de développeur.
+              <NavLink to="/downloads">Téléchargement</NavLink> un cv au format
+              pdf et d'autres documents pour illustrer mon parcours de
+              développeur.
             </p>
           </div>
         </div>

@@ -1,0 +1,170 @@
+.subNav {
+  padding: 5vh 0 0 0!important;
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding:25px 25px 25px 0 ;
+
+  z-index:5001;
+}
+
+/* Chrono  */
+.subNav .box1 {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subNav .box1 .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px black;
+}
+
+.subNav .box1 .pipe {
+  background-color: white;
+  width: 5px;
+  height: 45px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.subNav .box1 .subCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+/* 
+.subNav .box1 .subCircle:hover {
+  background: linear-gradient(green, white);
+} */
+
+.subNav .box1 .subCircleActive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background: linear-gradient(rgb(0, 153, 255), white);
+  z-index: 10;
+}
+
+.subNav .box1 .innerCircle {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+/* Links */
+.subNav .box2 {
+  margin: 5px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.subNav .box2 .space {
+  height: 45px;
+}
+
+.subNav .box2 .nav {
+  padding-top: 3px;
+  color: white;
+  height: 40px;
+}
+.subNav .box2 .navActive {
+  padding-top: 3px;
+  color: rgb(0, 153, 255);
+  height: 40px;
+  font-weight: bolder;
+}
+
+/* Burger */
+/* 
+.subNav .burger {
+  width: 50px;
+}
+
+.subNav .burger .horizontalPipeActive {
+  height: 6px;
+  background-color: rgba(88, 88, 88, 0.4);
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.subNav .burger .horizontalPipeActive {
+  height: 6px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.subNav .burger .horizontalSpace {
+  height: 6px;
+}
+
+Close cross 
+.subNav .closeCross {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+}
+
+.subNav .closeCross .crossCircle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid rgba(88, 88, 88);
+  box-shadow: 2px 2px 2px black;
+}
+
+.subNav .closeCross .crossCircleActive {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 2px 2px 2px black;
+}
+
+.subNav .closeCross .squareRight {
+  position: absolute;
+  width: 10px;
+  border-top:3px solid rgba(88, 88, 88);
+  transform: rotate(45deg);
+}
+
+.subNav .closeCross .squareLeft {
+  position: absolute;
+  width: 10px;
+  border-bottom:3px solid rgba(88, 88, 88);
+  transform: rotate(-45deg);
+}
+
+.subNav .closeCross .squareRightActive {
+  position: absolute;
+  width: 10px;
+  border-top:3px solid white;
+  transform: rotate(45deg);
+}
+
+.subNav .closeCross .squareLeftActive {
+  position: absolute;
+  width: 10px;
+  border-bottom:3px solid white;
+  transform: rotate(-45deg);
+} */

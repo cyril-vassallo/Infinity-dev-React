@@ -9,7 +9,7 @@ class Career extends Component {
     state = {  }
     render() {
         return (
-          <div className="career">
+          <div className="career" id="career">
             <Banner
               title="Expériences Professionnelles"
               background="background-3.jpg"

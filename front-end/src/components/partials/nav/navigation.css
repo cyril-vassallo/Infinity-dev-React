@@ -1,11 +1,10 @@
 #navbar {
   background-color: rgb(255, 255, 255); /* Black background color */
-  opacity:0.8;
+  opacity:0.95;
   position: fixed; /* Make it stick/fixed */
   top: 0; /* Stay on top */
-  width: 100%; /* Full width */
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
-  z-index:1001 ;
+  z-index:5002 ;
   -webkit-box-shadow: 0 5px 20px 10px black;
   -moz-box-shadow: 0 5px 20px 10px black;
   box-shadow: 0 5px 20px 10px black;
@@ -26,4 +25,9 @@
   color: rgb(255, 255, 255);
   border-radius: 2px;
   font-weight: 600;
+}
+
+#navbar a:first-child:hover {
+  border-radius: 0 2px 2px 0;
+
 }

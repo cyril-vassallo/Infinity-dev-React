@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Banner from "../partials/banner/Banner";
-import Card3d from "../card3d/Card3d";
 import "./contact.css";
 import Mailto from "./mailto/Mailto";
 
@@ -8,10 +7,9 @@ class Contact extends Component {
   state = {};
   render() {
     return (
-      <div className="container-fluid contact">
+      <div className="contact" id="contact">
         <Banner title="Contact" background="background-7.jpg" />
         <Mailto />
-        <Card3d />
       </div>
     );
   }

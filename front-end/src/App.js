@@ -9,12 +9,11 @@ import Downloads from "./pages/downloads/Downloads";
 
 
 
+
 function App() {
   return (
-
       <div className="App" id="app">
         <Navigation />
-        
         <Switch>
           {/* de la route la plus spécifique à la plus générique */}
           <Route path="/downloads" component={Downloads} />

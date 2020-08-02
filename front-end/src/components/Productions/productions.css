@@ -1,10 +1,10 @@
-.products .presentation {
+.productions .presentation {
   width: 60%;
   height: 800px;
 }
 
 @media screen and (max-width: 768px) {
-  .products .presentation {
+  .productions .presentation {
     width: 100%;
     height: 380px;
     padding: 0px

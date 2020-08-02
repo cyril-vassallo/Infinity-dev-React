@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import "./header.css"
-import Player from '../../player/Player';
-
-
+import PlayerAudio from '../../players/audio/PlayerAudio';
+import Typewriter from "typewriter-effect";
+import Planet from '../../three/planet/Planet';
 
 class Header extends Component {
     handleClick = () =>  {
@@ -12,21 +12,29 @@ class Header extends Component {
     
     render() {
         return (
-          <header className="header">
+          <header className="header" id="header">
             <div className="row my-5">
               <div className="col">
                 <h2>Cyril VASSALLO</h2>
                 <h3 className="text-center text-primary">
-                  Développeur web <br/>Javascript - PHP Fullstack
+                  Développeur web <br />
+                  <Typewriter
+                    options={{
+                      strings: ["Javascript", "PHP","React","Symfony","Node.js", "Nest", "fullstack"],
+                      autoStart: true,
+                      loop: true,
+                    }}
+                  />
                 </h3>
               </div>
             </div>
-            <img src="./img/circle.png" className="logo" alt="logo" />
+            <Planet/>
+            {/* <img src="./img/circle.png" className="logo" alt="logo" /> */}
             <p className="mt-3">Bienvenue sur ma page React</p>
             <a onClick={this.handleClick} className="link" href="#me">
               Présentation
             </a>
-            <Player/>
+            <PlayerAudio />
           </header>
         );
     }
