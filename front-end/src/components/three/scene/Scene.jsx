@@ -12,6 +12,7 @@ class Scene extends Component {
     this.canvas = null;
     this.distance = 1200;
     this.meshCard = null;
+    this.meshSun = null;
     this.meshPlanet = null;
     this.meshRocks = [];
   }
@@ -20,13 +21,23 @@ class Scene extends Component {
    * Script Start Execution on component
    */
   componentDidMount = () => {
-      this.init();
-      this.renderCardElement();
-      this.renderRockElements();
-      this.renderPlanetElement();
-      this.renderSunElement();
-      this.animateCamera();
-      this.rotateRocks();
+    this.init();
+    this.createCardElement();
+    this.createRockElements();
+    this.createPlanetElement();
+    this.createSunElement();
+    this.rotateRocks();
+    this.rotateSun();
+    this.rotatePlanet();
+    this.rotateCard()
+    this.addEventListeners();
+  };
+
+  addEventListeners = () => {
+    document.addEventListener("mousemove", this.handleMouseMove, false);
+    window.addEventListener("resize", this.handleWindowResize, false);
+    document.addEventListener("wheel", this.handleMouseRoll, false);
+    document.addEventListener("dblclick", this.handleDoubleClick, false);
   };
 
   /**
@@ -34,7 +45,7 @@ class Scene extends Component {
    */
   init = () => {
     const fos = 50;
-    const ratio = window.innerWidth / (window.innerHeight/2);
+    const ratio = window.innerWidth / window.innerHeight;
     const near = 0.1;
     const far = 200000;
     this.camera = new THREE.PerspectiveCamera(fos, ratio, near, far);
@@ -48,53 +59,64 @@ class Scene extends Component {
       antialias: true,
       alpha: true,
     });
-    this.renderer.setSize(window.innerWidth-25, (window.innerHeight/2));
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.setPixelRatio(window.devicePixelRatio);
 
     this.canvas = document.querySelector("#web-gl-scene");
 
     this.canvas.appendChild(this.renderer.domElement);
-
-    window.addEventListener("resize", this.onWindowResize, false);
   };
 
   /**
    * Create and render Elements
    */
-  renderCardElement = () => {
-    const textureCard = new THREE.TextureLoader().load(
-      "img/card/card.jpg"
-    );
+  createCardElement = () => {
 
-    const geometryCard = new THREE.PlaneGeometry(100, 60, 10);
+    const path = "img/card/";
+    const format = ".jpg";
+    const url =// [
+      path + "card" + format
+    //   path + "card" + format,
+    //   path + "card" + format,
+    //   path + "card" + format,
+    //   path + "card" + format,
+    //   path + "card" + format,
+    // ]
+    ;
+    
+    const textureCard = new THREE.TextureLoader()
+
+      .load(url);
+
+    const geometryCard = new THREE.BoxGeometry(100, 60, 1);
+ 
     //A material need texture or a basic material
     const materialCard = new THREE.MeshBasicMaterial({
       map: textureCard,
+      opacity: 0
     });
 
     //A Mesh need a geometry and material object
     this.meshCard = new THREE.Mesh(geometryCard, materialCard);
     this.meshCard.position.x = 0;
     this.meshCard.position.y = 0;
-    this.meshCard.position.z = 1100;
+    this.meshCard.position.z = 1050;
 
     this.scene.add(this.meshCard);
-    //this.rotateCard();
   };
 
   /**
    * Create and render Elements
    */
-  renderRockElements = () => {
+  createRockElements = () => {
     const textureRock = new THREE.TextureLoader().load("img/card/rock.jpg");
     const materialRock = new THREE.MeshBasicMaterial({
       map: textureRock,
-      opacity: 0.5
+      opacity: 0.5,
     });
     const max = 2000;
     const maxSize = Math.floor(Math.random() * Math.floor(200));
-    for (let i = 0; i < Math.floor(
-        Math.random() * Math.floor(10)); i++) {
+    for (let i = 0; i < Math.floor(Math.random() * Math.floor(10)); i++) {
       const geometryRock = new THREE.SphereBufferGeometry(
         Math.random() * Math.floor(maxSize),
         8,
@@ -105,10 +127,10 @@ class Scene extends Component {
       //A Mesh need a geometry and material object
       const meshRock = new THREE.Mesh(geometryRock, materialRock);
       meshRock.position.x = Math.floor(
-        Math.random() * Math.floor(max) - window.innerWidth / 2
+        Math.random() * Math.floor(max) - window.innerWidth
       );
       meshRock.position.y = Math.floor(
-        Math.random() * Math.floor(max) - window.innerHeight / 2
+        Math.random() * Math.floor(max) - window.innerHeight
       );
       meshRock.position.z = Math.floor(Math.random() * Math.floor(max) - 600);
       meshRock.name = "Rock" + i;
@@ -117,8 +139,10 @@ class Scene extends Component {
     }
   };
 
-  renderPlanetElement = () => {
-    const texturePlanet = new THREE.TextureLoader().load("img/card/earth-night.jpg");
+  createPlanetElement = () => {
+    const texturePlanet = new THREE.TextureLoader().load(
+      "img/card/earth-night.jpg"
+    );
     const materialPlanet = new THREE.MeshBasicMaterial({
       map: texturePlanet,
       opacity: 1,
@@ -130,11 +154,9 @@ class Scene extends Component {
     this.meshPlanet.position.y = 0;
     this.meshPlanet.position.z = -1000;
     this.scene.add(this.meshPlanet);
-    this.rotatePlanet();
-
   };
 
-  renderSunElement = () => {
+  createSunElement = () => {
     const textureSun = new THREE.TextureLoader().load("img/card/sun.jpg");
     const materialSun = new THREE.MeshBasicMaterial({
       map: textureSun,
@@ -147,46 +169,88 @@ class Scene extends Component {
     this.meshSun.position.y = 0;
     this.meshSun.position.z = -15000;
     this.scene.add(this.meshSun);
-    this.rotateSun();
   };
 
   /**
-   * Manage animations
+   * Manage mouse roll effect
    */
-  animateCamera = () => {
-    const onMouseMove = (e) => {
-      const mouseX = (e.clientX - window.innerWidth / 2) * 0.1;
-      const mouseY = (e.clientY - window.innerHeight / 2) * 0.01;
-      this.camera.position.x = mouseX;
-      this.camera.position.y = -mouseY;
-      this.camera.lookAt(this.scene.position);
-      this.renderer.render(this.scene, this.camera);
-    };
+  handleDoubleClick = () => {
+    this.camera.position.z = this.distance;
+    this.renderer.render(this.scene, this.camera);
+  };
 
-    document.addEventListener("mousemove", onMouseMove, false);
+  /**
+  /**
+   * Manage mouse roll effect
+   */
+  handleMouseRoll = () => {
+    this.camera.position.z += 5;
+    this.renderer.render(this.scene, this.camera);
+  };
+
+  /**
+   * Manage animations mouse mouve effect
+   */
+  handleMouseMove = (e) => {
+    const mouseX = (e.clientX - window.innerWidth/2) * 0.1;
+    const mouseY = (e.clientY - window.innerHeight/2) * 0.1;
+    this.camera.position.x = mouseX;
+    this.camera.position.y = -mouseY;
+    this.camera.lookAt(this.scene.position);
+    this.renderer.render(this.scene, this.camera);
+  };
+
+  /**
+   * Manage camera aspect on window resize
+   */
+  handleWindowResize = () => {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    if (window.innerWidth < 500) {
+      this.isMobileDevice = true;
+      if (this.isMobileDevice) {
+        this.distance = 1500;
+        this.camera.position.z = this.distance;
+        this.camera.lookAt(this.scene.position);
+        this.renderer.render(this.scene, this.camera);
+      }
+    } else {
+      this.isMobileDevice = false;
+      if (!this.isMobileDevice) {
+        this.distance = 1200;
+        this.camera.position.z = this.distance;
+        this.camera.lookAt(this.scene.position);
+        this.renderer.render(this.scene, this.camera);
+      }
+    }
   };
 
   /*Make the mesh rotate */
   rotateCard = () => {
     requestAnimationFrame(this.rotateCard);
-    this.meshCard.rotation.x += 0.01;
-    this.meshCard.rotation.y += 0.005;
-    this.renderer.render(this.scene, this.camera);
-  };
-  rotatePlanet = () => {
-    requestAnimationFrame(this.rotatePlanet);
-    this.meshPlanet.rotation.x += 0.00;
-    this.meshPlanet.rotation.y += 0.005;
+    this.meshCard.rotation.x = 0.5;
+    this.meshCard.rotation.y += 0.01;
+    this.meshCard.rotation.z = 0.5;
     this.renderer.render(this.scene, this.camera);
   };
 
+  /** Make the planet rotate */
+  rotatePlanet = () => {
+    requestAnimationFrame(this.rotatePlanet);
+    this.meshPlanet.rotation.x += 0.0;
+    this.meshPlanet.rotation.y += 0.005;
+    this.renderer.render(this.scene, this.camera);
+  };
+   /**Make the sun rotate */
   rotateSun = () => {
     requestAnimationFrame(this.rotateSun);
-    this.meshSun.rotation.x += 0.00;
+    this.meshSun.rotation.x += 0.0;
     this.meshSun.rotation.y += 0.0001;
     this.renderer.render(this.scene, this.camera);
   };
 
+  /** Make the rocks rotate*/
   rotateRocks = () => {
     requestAnimationFrame(this.rotateRocks);
     this.meshRocks.forEach((meshRock) => {
@@ -196,38 +260,9 @@ class Scene extends Component {
     });
   };
 
-  onWindowResize = () => {
-    this.camera.aspect = window.innerWidth / (window.innerHeight/2);
-    this.camera.updateProjectionMatrix();
-    this.renderer.setSize(window.innerWidth, (window.innerHeight/2));
-    if(window.innerWidth < 500){
-      this.isMobileDevice = true;
-      if (this.isMobileDevice) {
-        this.distance = 1500;
-        this.camera.position.z = this.distance;
-        this.camera.lookAt(this.scene.position);
-        this.renderer.render(this.scene, this.camera);
-      }
-    }else {
-      this.isMobileDevice = false;
-      if (!this.isMobileDevice) {
-        this.distance = 1200;
-        this.camera.position.z = this.distance;
-        this.camera.lookAt(this.scene.position);
-        this.renderer.render(this.scene, this.camera);
-      }
-  }
-};
-
   render() {
     return (
-      <div className="container-fluid scene">
-        <div className="row">
-          <div className="col">
-            <div id="web-gl-scene"></div>
-          </div>
-        </div>
-      </div>
+      <div id="web-gl-scene"></div>
     );
   }
 }

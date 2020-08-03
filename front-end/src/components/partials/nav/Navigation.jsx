@@ -39,6 +39,7 @@ class Navigation extends Component {
         <div className="row">
           <NavLink to="/">Infinity Dev</NavLink>
           <NavLink to="/downloads">Téléchargement</NavLink>
+          <NavLink to="/demo">Démo 3D</NavLink>
         </div>
       </nav>
     );
