@@ -13,3 +13,10 @@
   padding: 0;
 }
 
+
+#web-gl-scene img{
+ position: fixed;
+ width: 50px;
+ top: 25px;
+ left:25px;
+}

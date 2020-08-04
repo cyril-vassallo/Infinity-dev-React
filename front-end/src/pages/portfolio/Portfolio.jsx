@@ -7,6 +7,7 @@ import Widgets from '../../components/widgets/Widgets';
 import Productions from './../../components/Productions/Productions';
 import Header from '../../components/partials/header/Header';
 import AbsolutNav from './../../components/partials/absolutNav/AbsolutNav';
+import Footer from "./../../components/partials/footer/Footer";
 import './portfolio.css'
 
 
@@ -23,6 +24,7 @@ class Portfolio extends Component {
             <Productions />
             <Widgets />
             <Contact />
+            <Footer/>
           </main>
         );
     }

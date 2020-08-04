@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Banner from "./../../components/partials/banner/Banner";
 import Document from "./../../components/document/Document";
-import './downloads.css';
 import FetchData from './../../services/FetchData';
 import Navigation from './../../components/partials/nav/Navigation';
+import Footer from "./../../components/partials/footer/Footer";
 
 class Downloads extends Component {
     constructor(){
@@ -32,6 +32,7 @@ class Downloads extends Component {
         {this.state.documents && this.state.documents.map( (document, key) => {
             return <Document key={key} document={document} />
         })}
+        <Footer/>
       </div>
     );
   }

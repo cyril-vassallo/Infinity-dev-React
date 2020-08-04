@@ -1,8 +1,27 @@
-
-@media screen and (max-width: 768px) {
-    .about .introduction {
-        font-size: 2em;
-    }
+.about .profil {
+  background-image: url("/img/banners/background-3.jpg");
+  background-size: cover;
+  border-radius: 25px;
+  padding: 25px;
+  text-align: justify;
+  border: 2px solid beige;
+  text-shadow: 2px 2px 2px black;
 }
 
+.about .profil img {
+  width: 150px;
+  float: left;
+  margin-right: 15px;
+  border-radius: 25px;
+}
 
+.about h3 {
+  font-size: 2rem;
+  text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+  .about .introduction {
+    font-size: 2em;
+  }
+}

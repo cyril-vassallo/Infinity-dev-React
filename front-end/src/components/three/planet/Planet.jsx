@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as THREE from "three";
-import "./planet.css";
 
 class Planet extends Component {
   constructor(props) {
@@ -64,7 +63,7 @@ class Planet extends Component {
       map: texturePlanet,
       opacity: 1,
     });
-    const geometryPlanet = new THREE.SphereBufferGeometry(500, 30, 30);
+    const geometryPlanet = new THREE.SphereBufferGeometry(500, 20, 20);
     this.meshPlanet = new THREE.Mesh(geometryPlanet, materialPlanet);
     this.meshPlanet.name = "Planet";
     this.meshPlanet.position.x = 0;
@@ -79,10 +78,11 @@ class Planet extends Component {
    * Rotate the planet
    */
   rotatePlanet = () => {
-    this.animation = requestAnimationFrame(this.rotatePlanet);
-    this.meshPlanet.rotation.x += 0.0;
-    this.meshPlanet.rotation.y += 0.005;
-    this.renderer.render(this.scene, this.camera);
+    setTimeout(()=>{
+      this.animation = requestAnimationFrame(this.rotatePlanet);
+      this.meshPlanet.rotation.y += 0.002 ;
+      this.renderer.render(this.scene, this.camera);
+    },30)
   };
 
   /**
@@ -91,6 +91,8 @@ class Planet extends Component {
    */
   stopRotatePlanet = () => {
     cancelAnimationFrame(this.animation);
+    this.renderer.clear();
+    this.renderer.render(this.scene, this.camera);
   };
 
   /**
@@ -100,7 +102,7 @@ class Planet extends Component {
   planetAnimationManagement = (rotatePlanet, stopRotatePlanet) => {
     const options = {
       root: null,
-      rootMargin: "500px",
+      rootMargin: "200px",
       threshold: 1.0,
     };
     this.visibilityCallback = (entries, observe) => {
@@ -108,11 +110,13 @@ class Planet extends Component {
         if (entry.isIntersecting) {
           if (entry.intersectionRatio > 0) {
             if (!this.isRotate) {
+              console.log("start rotate Planet");
               rotatePlanet();
               this.isRotate = true;
             }
           }
         } else {
+          console.log("stop planet")
           stopRotatePlanet();
           this.isRotate = false;
         }
@@ -138,7 +142,8 @@ class Planet extends Component {
         this.distance = 2500;
         this.camera.position.z = this.distance;
         this.camera.lookAt(this.scene.position);
-        this.renderer.render(this.scene, this.camera);
+        this.renderer.clear();
+        this.this.renderer.render(this.scene, this.camera);
       }
     } else {
       this.isMobileDevice = false;
@@ -146,6 +151,7 @@ class Planet extends Component {
         this.distance = 1200;
         this.camera.position.z = this.distance;
         this.camera.lookAt(this.scene.position);
+        this.renderer.clear();
         this.renderer.render(this.scene, this.camera);
       }
     }
@@ -156,13 +162,7 @@ class Planet extends Component {
    */
   render() {
     return (
-      <div className="container-fluid planet">
-        <div className="row">
-          <div className="col">
-            <div id="web-gl-planet"></div>
-          </div>
-        </div>
-      </div>
+      <div id="web-gl-planet"></div>
     );
   }
 }

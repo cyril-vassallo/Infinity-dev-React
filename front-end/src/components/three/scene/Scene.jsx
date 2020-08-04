@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import * as THREE from "three";
 import "./scene.css";
+import { NavLink } from "react-router-dom";
+import { openFullscreen, closeFullscreen } from "../../../services/utils";
 
 class Scene extends Component {
   constructor() {
     super();
+    this.audioElement = new Audio(
+      "media/music/Gamma.mp3"
+    );
     this.isMobileDevice = null;
     this.scene = new THREE.Scene();
     this.camera = null;
@@ -21,6 +26,8 @@ class Scene extends Component {
    * Script Start Execution on component
    */
   componentDidMount = () => {
+    this.audioElement.play();
+    openFullscreen();
     this.init();
     this.createCardElement();
     this.createRockElements();
@@ -29,8 +36,18 @@ class Scene extends Component {
     this.rotateRocks();
     this.rotateSun();
     this.rotatePlanet();
-    this.rotateCard()
+    this.rotateCard();
     this.addEventListeners();
+  };
+
+
+  componentWillUnmount = () => {
+    this.audioElement.pause();
+    closeFullscreen();
+    document.removeEventListener("mousemove", this.handleMouseMove, false);
+    window.removeEventListener("resize", this.handleWindowResize, false);
+    document.removeEventListener("wheel", this.handleMouseRoll, false);
+    document.removeEventListener("dblclick", this.handleDoubleClick, false);
   };
 
   addEventListeners = () => {
@@ -71,29 +88,26 @@ class Scene extends Component {
    * Create and render Elements
    */
   createCardElement = () => {
-
-    const path = "img/card/";
-    const format = ".jpg";
-    const url =// [
-      path + "card" + format
+    const length = 100,
+      width = 60,
+      depth = 1,
+      path = "img/card/",
+      format = ".jpg";
+    const url = "card" + format; // [
     //   path + "card" + format,
     //   path + "card" + format,
     //   path + "card" + format,
     //   path + "card" + format,
     //   path + "card" + format,
     // ]
-    ;
-    
-    const textureCard = new THREE.TextureLoader()
+    const textureCard = new THREE.TextureLoader().setPath(path).load(url);
 
-      .load(url);
+    const geometryCard = new THREE.BoxGeometry(length, width, depth);
 
-    const geometryCard = new THREE.BoxGeometry(100, 60, 1);
- 
     //A material need texture or a basic material
     const materialCard = new THREE.MeshBasicMaterial({
       map: textureCard,
-      opacity: 0
+      opacity: 0,
     });
 
     //A Mesh need a geometry and material object
@@ -147,7 +161,7 @@ class Scene extends Component {
       map: texturePlanet,
       opacity: 1,
     });
-    const geometryPlanet = new THREE.SphereBufferGeometry(500, 30, 30);
+    const geometryPlanet = new THREE.SphereBufferGeometry(500, 20, 20);
     this.meshPlanet = new THREE.Mesh(geometryPlanet, materialPlanet);
     this.meshPlanet.name = "Planet";
     this.meshPlanet.position.x = 500;
@@ -192,8 +206,8 @@ class Scene extends Component {
    * Manage animations mouse mouve effect
    */
   handleMouseMove = (e) => {
-    const mouseX = (e.clientX - window.innerWidth/2) * 0.1;
-    const mouseY = (e.clientY - window.innerHeight/2) * 0.1;
+    const mouseX = (e.clientX - window.innerWidth / 2) * 0.1;
+    const mouseY = (e.clientY - window.innerHeight / 2) * 0.1;
     this.camera.position.x = mouseX;
     this.camera.position.y = -mouseY;
     this.camera.lookAt(this.scene.position);
@@ -228,41 +242,51 @@ class Scene extends Component {
 
   /*Make the mesh rotate */
   rotateCard = () => {
-    requestAnimationFrame(this.rotateCard);
-    this.meshCard.rotation.x = 0.5;
-    this.meshCard.rotation.y += 0.01;
-    this.meshCard.rotation.z = 0.5;
-    this.renderer.render(this.scene, this.camera);
+    setTimeout(() => {
+      requestAnimationFrame(this.rotateCard);
+      this.meshCard.rotation.x = 0.5;
+      this.meshCard.rotation.y += 0.01;
+      this.meshCard.rotation.z = 0.5;
+      this.renderer.render(this.scene, this.camera);
+    }, 60);
   };
 
   /** Make the planet rotate */
   rotatePlanet = () => {
-    requestAnimationFrame(this.rotatePlanet);
-    this.meshPlanet.rotation.x += 0.0;
-    this.meshPlanet.rotation.y += 0.005;
-    this.renderer.render(this.scene, this.camera);
+    setTimeout(() => {
+      requestAnimationFrame(this.rotatePlanet);
+      this.meshPlanet.rotation.y += 0.005;
+      this.renderer.render(this.scene, this.camera);
+    }, 60);
   };
-   /**Make the sun rotate */
+  /**Make the sun rotate */
   rotateSun = () => {
-    requestAnimationFrame(this.rotateSun);
-    this.meshSun.rotation.x += 0.0;
-    this.meshSun.rotation.y += 0.0001;
-    this.renderer.render(this.scene, this.camera);
+    setTimeout(() => {
+      requestAnimationFrame(this.rotateSun);
+      this.meshSun.rotation.y += 0.0001;
+      this.renderer.render(this.scene, this.camera);
+    }, 1000);
   };
 
   /** Make the rocks rotate*/
   rotateRocks = () => {
-    requestAnimationFrame(this.rotateRocks);
-    this.meshRocks.forEach((meshRock) => {
-      meshRock.rotation.x += 0.01;
-      meshRock.rotation.y += 0.005;
-      this.renderer.render(this.scene, this.camera);
-    });
+    setTimeout(() => {
+      requestAnimationFrame(this.rotateRocks);
+      this.meshRocks.forEach((meshRock) => {
+        meshRock.rotation.x += 0.01;
+        meshRock.rotation.y += 0.005;
+        this.renderer.render(this.scene, this.camera);
+      });
+    }, 100);
   };
 
   render() {
     return (
-      <div id="web-gl-scene"></div>
+      <div id="web-gl-scene">
+        <NavLink to="/">
+          <img src="svg/close.svg" alt="return to home" />
+        </NavLink>
+      </div>
     );
   }
 }

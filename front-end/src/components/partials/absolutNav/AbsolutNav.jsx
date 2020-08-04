@@ -77,6 +77,7 @@ class AbsolutNav extends Component {
       block: "start",
       inline: "nearest",
     });
+    this.handleClickClose();
   };
 
   render() {

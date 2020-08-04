@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 
-class Card3d extends Component {
+class Card extends Component {
 
   render() {
     return (
@@ -14,12 +15,11 @@ class Card3d extends Component {
         </div>
         <div className="row">
           <div className="col my-5 text-center">
-            <a href="/demo">
-              {" "}
+            <NavLink to="/demo">
               <button className="btn btn-success btn-lg">
                 Lancer la démo 3D
               </button>
-            </a>{" "}
+            </NavLink>
           </div>
         </div>
       </div>
@@ -27,4 +27,4 @@ class Card3d extends Component {
   }
 }
 
-export default Card3d;
+export default Card;

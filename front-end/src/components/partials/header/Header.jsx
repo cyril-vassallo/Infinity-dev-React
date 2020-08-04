@@ -7,7 +7,11 @@ import Planet from '../../three/planet/Planet';
 class Header extends Component {
     handleClick = () =>  {
      const about = document.getElementById('about');
-     about.scrollIntoView();
+     about.scrollIntoView({
+       behavior: "smooth",
+       block: "start",
+       inline: "nearest",
+     });
     }
     
     render() {

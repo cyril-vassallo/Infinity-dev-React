@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import Portfolio from "./pages/portfolio/Portfolio";
-import Footer from "./components/partials/footer/Footer";
 import Downloads from "./pages/downloads/Downloads";
 import Demo from "./pages/demo/Demo"
 
@@ -19,7 +18,7 @@ function App() {
           <Route path="/demo" component={Demo} />
           <Route path="/" component={Portfolio} />
         </Switch>
-        <Footer/>
+        
       </div>
 
   );
