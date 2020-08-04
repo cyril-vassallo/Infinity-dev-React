@@ -110,13 +110,13 @@ class Planet extends Component {
         if (entry.isIntersecting) {
           if (entry.intersectionRatio > 0) {
             if (!this.isRotate) {
-              console.log("start rotate Planet");
+              //console.log("start rotate Planet");
               rotatePlanet();
               this.isRotate = true;
             }
           }
         } else {
-          console.log("stop planet")
+         // console.log("stop planet")
           stopRotatePlanet();
           this.isRotate = false;
         }
@@ -143,7 +143,7 @@ class Planet extends Component {
         this.camera.position.z = this.distance;
         this.camera.lookAt(this.scene.position);
         this.renderer.clear();
-        this.this.renderer.render(this.scene, this.camera);
+        this.renderer.render(this.scene, this.camera);
       }
     } else {
       this.isMobileDevice = false;

@@ -3,7 +3,6 @@
   background-size: cover;
   border-radius: 25px;
   padding: 25px;
-  text-align: justify;
   border: 2px solid beige;
   text-shadow: 2px 2px 2px black;
 }
@@ -24,4 +23,12 @@
   .about .introduction {
     font-size: 2em;
   }
+  *
+
+  .about .profil img {
+  width: 100%;
+  float: left;
+  margin: 0;
+  border-radius: 25px;
+}
 }

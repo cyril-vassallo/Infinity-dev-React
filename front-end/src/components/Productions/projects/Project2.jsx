@@ -8,7 +8,7 @@ function Project2({images}) {
         <div className="row my-5">
           <div className="col">
             <h4>
-              EManager portail administration et widgets - Stage chez Emity
+              EManager portail administration et widgets - chez Emity
             </h4>
             <p className="text-primary">Septembre à décembre 2019</p>
             <p>
@@ -52,7 +52,7 @@ function Project2({images}) {
             </ul>
           </div>
           <div className="col-md-6">
-            <h5 className="text-success">Archives</h5>
+            <h5 className="text-success">Productions chez Emity</h5>
             <Presentation images={images} />
           </div>
         </div>

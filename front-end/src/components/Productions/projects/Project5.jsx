@@ -37,8 +37,8 @@ function Project5() {
         </div>
         <div className="col-md-6">
           <YoutubePlayer
-            title="Archives"
-            url="https://www.youtube.com/embed/h6nb4x-t0Bk"
+            title="Mini CRM React et Api REST"
+            url="https://www.youtube-nocookie.com/embed/h6nb4x-t0Bk"
           />
         </div>
       </div>

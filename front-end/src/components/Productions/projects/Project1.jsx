@@ -15,7 +15,7 @@ function Project1({images}) {
               était question de mettre à disposition sur server mutualisé un
               gestionnaire de questionnaires en ligne permettant d'intérroger de
               façon anonyme les collaborateurs de l'Afpa sur le territoire
-              national au sujet des risques psycho-sociaux au travail.
+              national au sujet des risques psycho-sociaux (RPS) au travail.
             </p>
           </div>
         </div>
@@ -53,7 +53,7 @@ function Project1({images}) {
             </ul>
           </div>
           <div className="col-md-6">
-            <h5 className="text-success">Archives</h5>
+            <h5 className="text-success">Projet RPS</h5>
             <Presentation images={images} />
           </div>
         </div>

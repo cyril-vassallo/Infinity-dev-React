@@ -40,9 +40,8 @@ function Project6() {
         </div>
         <div className="col-md-6">
           <YoutubePlayer
-            title="Archives"
-            url="https://www.youtube.com/embed/s9Nb5FkLNkM"
-            
+            title="Infinity Booking"
+            url="https://www.youtube-nocookie.com/embed/s9Nb5FkLNkM"
           />
         </div>
       </div>

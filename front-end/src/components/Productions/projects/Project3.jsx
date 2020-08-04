@@ -45,8 +45,8 @@ function Project3() {
           </div>
           <div className="col-md-6">
             <YoutubePlayer
-              title="Archives"
-              url="https://www.youtube.com/embed/c9_eFc9B_8c"
+              title="Infinity-dev v1"
+              url="https://www.youtube-nocookie.com/embed/c9_eFc9B_8c"
             />
           </div>
         </div>

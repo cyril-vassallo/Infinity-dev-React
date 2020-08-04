@@ -19,7 +19,7 @@ class Weather extends Component {
    */
   handleChangeCity = ({target}) => {
     const city = target.value
-    console.log("Dans handleChangeCity : ", city);
+    //console.log("Dans handleChangeCity : ", city);
     const copyState = { ...this.state };
     copyState.fetchWeather = new FetchWeather(city);
     copyState.fetchWeather.getCurrentWeather(
@@ -43,7 +43,7 @@ class Weather extends Component {
    */
   successGetCurrentWeather = (currentWeather) => {
     const copyState = { ...this.state };
-    console.log("Dans successGetCurrentWeather : ", currentWeather);
+   // console.log("Dans successGetCurrentWeather : ", currentWeather);
     copyState.currentWeather = currentWeather;
     copyState.isLoading = false;
     this.setState(copyState);
