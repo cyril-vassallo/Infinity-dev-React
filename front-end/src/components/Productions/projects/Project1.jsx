@@ -12,7 +12,7 @@ function Project1({images}) {
             <p className="text-primary">Avril à Juillet 2019</p>
             <p>
               Il s'agissait de répondre à la demande de CSHCT de l'Afpa. Il
-              était question de mettre à disposition sur server mutualisé un
+              était question de mettre à disposition sur serveur mutualisé un
               gestionnaire de questionnaires en ligne permettant d'intérroger de
               façon anonyme les collaborateurs de l'Afpa sur le territoire
               national au sujet des risques psycho-sociaux (RPS) au travail.

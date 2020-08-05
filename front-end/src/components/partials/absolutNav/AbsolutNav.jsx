@@ -6,29 +6,43 @@ class AbsolutNav extends Component {
   constructor() {
     super();
     this.state = {
-      subCircles: [
-        { class: "subCircleActive" },
-        { class: "subCircle" },
-        { class: "subCircle" },
-        { class: "subCircle" },
-        { class: "subCircle" },
-        { class: "subCircle" },
-      ],
       navigations: [
-        { class: "navActive", title: "Presentation", target: "header" },
         {
-          class: "nav",
+          subCircleClass: "subCircleActive",
+          navigationClass: "navActive",
+          title: "Presentation",
+          target: "header",
+        },
+        {
+          subCircleClass: "subCircle",
+          navigationClass: "nav",
           title: "Expériences Professionnelles",
           target: "career",
         },
-        { class: "nav", title: "Développement", target: "skills" },
         {
-          class: "nav",
+          subCircleClass: "subCircle",
+          navigationClass: "nav",
+          title: "Développement",
+          target: "skills",
+        },
+        {
+          subCircleClass: "subCircle",
+          navigationClass: "nav",
           title: "Portfolio des productions",
           target: "productions",
         },
-        { class: "nav", title: "Démonstrations", target: "widgets" },
-        { class: "nav", title: "Contact", target: "contact" },
+        {
+          subCircleClass: "subCircle",
+          navigationClass: "nav",
+          title: "Démonstrations",
+          target: "widgets",
+        },
+        {
+          subCircleClass: "subCircle",
+          navigationClass: "nav",
+          title: "Contact",
+          target: "contact",
+        },
       ],
     };
   }
@@ -53,19 +67,21 @@ class AbsolutNav extends Component {
     const copyState = { ...this.state };
     let copyNavigations = copyState.navigations.map((nav, key) => {
       if (elementKey === key) {
-        return { class: "navActive", title: nav.title, target: nav.target };
+        return {
+          subCircleClass: "subCircleActive",
+          navigationClass: "navActive",
+          title: nav.title,
+          target: nav.target,
+        };
       } else {
-        return { class: "nav", title: nav.title, target: nav.target };
+        return {
+          subCircleClass: "subCircle",
+          navigationClass: "nav",
+          title: nav.title,
+          target: nav.target,
+        };
       }
     });
-    let copySubCircles = copyState.subCircles.map((subCircle, key) => {
-      if (elementKey === key) {
-        return { class: "subCircleActive" };
-      } else {
-        return { class: "subCircle" };
-      }
-    });
-    copyState.subCircles = copySubCircles;
     copyState.navigations = copyNavigations;
 
     this.setState(copyState);
@@ -84,7 +100,12 @@ class AbsolutNav extends Component {
     return (
       <>
         <div className="arrow" id="arrow" onClick={this.handleClickOpen}>
-              <p ><span><img src="svg/arrow.svg" alt="" /></span>  Navigation </p>
+          <p>
+            <span>
+              <img src="svg/arrow.svg" alt="" />
+            </span>{" "}
+            Navigation{" "}
+          </p>
         </div>
         <div className="subNav container-fluid" id="subNav">
           <div className="row">
@@ -101,15 +122,18 @@ class AbsolutNav extends Component {
             <div className="col box">
               {" "}
               <div className="box1">
-                {this.state.subCircles.map((subCircle, key, subCircles) => {
+                {this.state.navigations.map((subCircle, key, navigations) => {
                   return (
                     <div key={key}>
-                      <div key ={key} className="circle">
-                        <div className={subCircle.class} id={"subCircle" + key}>
+                      <div key={key} className="circle">
+                        <div
+                          className={subCircle.subCircleClass}
+                          id={"subCircle" + key}
+                        >
                           <div className="innerCircle"></div>
                         </div>
                       </div>
-                      {key !== subCircles.length - 1 ? (
+                      {key !== navigations.length - 1 ? (
                         <div className="pipe"></div>
                       ) : (
                         ""
@@ -123,7 +147,7 @@ class AbsolutNav extends Component {
                   return (
                     <div key={key}>
                       <div
-                        className={nav.class}
+                        className={nav.navigationClass}
                         target={nav.target}
                         id={"nav" + key}
                         onClick={(event) => {

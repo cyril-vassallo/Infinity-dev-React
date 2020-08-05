@@ -51,8 +51,8 @@ class About extends Component {
                 en SQL.
               </p>
               <p>
-                J'ai mis à disposition en rubrique{" "}
-                <NavLink to="/downloads">Téléchargement</NavLink> un cv au format
+                En suivant ce lien{" "}
+                <NavLink to="/downloads">Téléchargements</NavLink>, vous trouverez un CV au format
                 pdf et d'autres documents pour illustrer mon parcours de
                 développeur.
               </p>

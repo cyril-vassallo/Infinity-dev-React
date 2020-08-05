@@ -8,10 +8,10 @@
 }
 
 .about .profil img {
-  width: 150px;
+  width: 25%;
   float: left;
   margin-right: 15px;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 .about h3 {
@@ -28,7 +28,7 @@
   .about .profil img {
   width: 100%;
   float: left;
-  margin: 0;
-  border-radius: 25px;
-}
+  margin: none;
+  margin-bottom: 25px;
+  }
 }
