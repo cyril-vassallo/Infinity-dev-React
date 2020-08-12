@@ -1,5 +1,5 @@
 .about .profil {
-  background-image: url("/img/banners/background-3.jpg");
+  background-image: url("/img/banners/background-0.jpg ");
   background-size: cover;
   border-radius: 25px;
   padding: 25px;
@@ -16,14 +16,12 @@
 
 .about h3 {
   font-size: 2rem;
-  text-align: justify;
 }
 
 @media screen and (max-width: 768px) {
   .about .introduction {
     font-size: 2em;
   }
-  *
 
   .about .profil img {
   width: 100%;

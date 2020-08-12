@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import {openFullscreen, closeFullscreen} from "../../../services/utils"
 
 class PlayerAudio extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      audioElement: new Audio("media/music/Plongee-Nocturne.mp3"),
+      audioElement: new Audio("media/music/"+props.audio),
       isPlaying: false,
     };
   }

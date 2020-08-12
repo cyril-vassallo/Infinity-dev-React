@@ -7,7 +7,7 @@ function Project5() {
     <>
       <div className="row my-5">
         <div className="col">
-          <h4>E-learning Symfony 4 - Mini CRM React et Api REST</h4>
+          <h4>Mini CRM React et Api REST - E-learning Symfony 4</h4>
           <p className="text-primary">Février à Mars 2020</p>
           <p>
             Il s'agissait d'apprendre à utiliser le framework Symfony 4 avec Api
@@ -23,7 +23,7 @@ function Project5() {
           <h5 className="text-success">Environnement Technique</h5>
           <p>
             React, Symfony4, Api Platform, Swagger, Postman, PHP, Apache2,
-            Javascript, SQL, l'ORM Doctrine, Bootstrap4, Html5/CSS, SASS,
+            Javascript, SQL, l'ORM Doctrine, Bootstrap4, Html5/CSS, SCSS,
             Webpack encore.
           </p>
           <h5 className="text-success">Les fonctionnalités</h5>

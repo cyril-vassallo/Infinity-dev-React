@@ -3,8 +3,8 @@ import { fadeOutEffect, fadeInEffect } from "./../../../services/utils";
 import "./absolutNav.css";
 
 class AbsolutNav extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       navigations: [
         {
@@ -44,19 +44,51 @@ class AbsolutNav extends Component {
           target: "contact",
         },
       ],
+      position: 0,
     };
   }
 
+  handleNewPosition = () => {
+    const copyState = { ...this.state };
+    copyState.position = this.props.position;
+    let copyNavigations = copyState.navigations.map((nav, key) => {
+      if (key === copyState.position) {
+        console.log(
+        );
+        return {
+          subCircleClass: "subCircleActive",
+          navigationClass: "navActive",
+          title: nav.title,
+          target: nav.target,
+        };
+      } else {
+        console.log(
+        );
+        return {
+          subCircleClass: "subCircle",
+          navigationClass: "nav",
+          title: nav.title,
+          target: nav.target,
+        };
+      }
+    });
+    copyState.navigations = copyNavigations;
+    this.setState(copyState);
+  };
+
   handleClickClose = () => {
+    const html = document.querySelector("html");
+    html.style.overflow = "visible ";
     const subNav = document.querySelector("#subNav");
     const arrow = document.querySelector("#arrow");
     fadeOutEffect(subNav);
     fadeInEffect(arrow);
-
-    // console.log(subNav);
-    // subNav.style.left = "-1000px";
   };
+
   handleClickOpen = () => {
+    this.handleNewPosition();
+    const html = document.querySelector("html");
+    html.style.overflow = "hidden";
     const subNav = document.querySelector("#subNav");
     const arrow = document.querySelector("#arrow");
     fadeInEffect(subNav);
@@ -99,13 +131,18 @@ class AbsolutNav extends Component {
   render() {
     return (
       <>
-        <div className="arrow" id="arrow" onClick={this.handleClickOpen}>
-          <p>
-            <span>
-              <img src="svg/arrow.svg" alt="" />
-            </span>{" "}
-            Navigation{" "}
-          </p>
+        <div className="arrow container-fluid" id="arrow" onClick={this.handleClickOpen}>
+          <div className="row">
+            <div className="col">
+              <p>
+                <span>
+                  <img src="svg/arrow.svg" alt="" />
+                </span>{" "}
+                Navigation{" "}
+              </p>
+
+            </div>
+          </div>
         </div>
         <div className="subNav container-fluid" id="subNav">
           <div className="row">

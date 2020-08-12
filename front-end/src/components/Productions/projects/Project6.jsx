@@ -7,14 +7,14 @@ function Project6() {
     <>
       <div className="row my-5">
         <div className="col">
-          <h4>E-learning Symfony 4 - Infinity Booking</h4>
+          <h4>Infinity Booking - E-learning Symfony 4 </h4>
           <p className="text-primary">Octobre 2019</p>
           <p>
             Il s'agissait d'apprendre à utiliser le framework Symfony 4. En
-            E-Learning réalisation d'un site de réservation de chambres. En
-            E-Learning réalisation du front office du site Infinity-Booking.
-            Parmi mes projets d'E-Learning il est le plus complet. Il m'a permis
-            d'aboutir à la maîtrise de Symfony4.
+            E-Learning réalisation d'un site de réservation de chambres. Parmis
+            mes projets d'E-Learning il est le plus complet. Il m'a permis
+            d'aboutir à la maîtrise de Symfony 4 et un perfectionnement en
+            bootstrap 4.
           </p>
         </div>
       </div>
@@ -23,7 +23,7 @@ function Project6() {
           <h5 className="text-success">Environnement Technique</h5>
           <p>
             Symfony4, PHP, Apache2, Javascript, SQL, Jquery, Twig, l'ORM
-            Doctrine, Bootstrap4, Html5/CSS, SASS, Webpack encore.
+            Doctrine, Bootstrap4, Html5/CSS, SCSS, Webpack encore.
           </p>
           <h5 className="text-success">Les fonctionnalités</h5>
           <ul>

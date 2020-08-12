@@ -57,7 +57,7 @@ function Spacer({ spacerNumber = "0" }) {
         <div className="col-5">_____________</div>
       </div>
       <audio id="sound">
-        <source src="media/music/sound.wav" />
+        <source src="media/music/sound.mp3" />
       </audio>
     </div>
   );

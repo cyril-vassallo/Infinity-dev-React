@@ -16,6 +16,7 @@
     "react-iframe": "^1.8.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-scroll-parallax": "^2.3.4",
     "slugify": "^1.4.4",
     "three": "^0.118.3",
     "typewriter-effect": "^2.13.1"

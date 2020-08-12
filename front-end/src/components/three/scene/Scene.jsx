@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import * as THREE from "three";
 import "./scene.css";
 import { NavLink } from "react-router-dom";
-import { openFullscreen, closeFullscreen } from "../../../services/utils";
+//import { openFullscreen, closeFullscreen } from "../../../services/utils";
 
 class Scene extends Component {
   constructor() {
     super();
-    this.audioElement = new Audio(
-      "media/music/Gamma.mp3"
-    );
+    this.audioElement = new Audio("media/music/Gamma.mp3");
     this.isMobileDevice = null;
     this.scene = new THREE.Scene();
     this.camera = null;
@@ -23,44 +21,81 @@ class Scene extends Component {
   }
 
   /**
+   * Test Method
+   */
+  test = () => {
+    this.removeMeshes();
+  };
+
+  /**
    * Script Start Execution on component
    */
   componentDidMount = () => {
+    // openFullscreen();
     this.audioElement.play();
-    openFullscreen();
-    this.init();
-    this.createCardElement();
-    this.createRockElements();
-    this.createPlanetElement();
-    this.createSunElement();
-    this.rotateRocks();
-    this.rotateSun();
+    this.initScene();
+    this.createSunMesh();
+    this.createPlanetMesh();
+    this.createCardMesh();
+    this.createRockMeshes();
     this.rotatePlanet();
     this.rotateCard();
+    this.rotateRocks();
+    this.rotateSun();
     this.addEventListeners();
+
   };
 
-
+  /**
+   * Script stop Execution on component
+   */
   componentWillUnmount = () => {
     this.audioElement.pause();
-    closeFullscreen();
-    document.removeEventListener("mousemove", this.handleMouseMove, false);
-    window.removeEventListener("resize", this.handleWindowResize, false);
-    document.removeEventListener("wheel", this.handleMouseRoll, false);
-    document.removeEventListener("dblclick", this.handleDoubleClick, false);
+    this.removeEventListeners();
+    this.removeMeshes();
+    // closeFullscreen();
   };
 
+  /**
+   * Three.js
+   * remove Mesh and  them components from the scene
+   */
+  removeMeshes = () => {
+    this.scene
+      .remove(this.meshCard)
+      .remove(this.meshPlanet)
+      .remove(this.meshSun);
+    this.meshRocks.forEach((rock)=> {
+      this.scene.remove(rock)
+    });
+    this.renderer.renderLists.dispose();
+    this.renderer.clear();
+  };
+
+  /**
+   * Remove all scene events
+   */
+  removeEventListeners = () => {
+    this.canvas.removeEventListener("mousemove", this.handleMouseMove, false);
+    window.removeEventListener("resize", this.handleWindowResize, false);
+    this.canvas.removeEventListener("wheel", this.handleMouseRoll, false);
+    this.canvas.removeEventListener("dblclick", this.handleDoubleClick, false);
+  };
+
+  /**
+   * add all scene events
+   */
   addEventListeners = () => {
-    document.addEventListener("mousemove", this.handleMouseMove, false);
+    this.canvas.addEventListener("mousemove", this.handleMouseMove, false);
     window.addEventListener("resize", this.handleWindowResize, false);
-    document.addEventListener("wheel", this.handleMouseRoll, false);
-    document.addEventListener("dblclick", this.handleDoubleClick, false);
+    this.canvas.addEventListener("wheel", this.handleMouseRoll, false);
+    this.canvas.addEventListener("dblclick", this.handleDoubleClick, false);
   };
 
   /**
    * Initialize this.scene , this.camera, this.renderer and this.canvas
    */
-  init = () => {
+  initScene = () => {
     const fos = 50;
     const ratio = window.innerWidth / window.innerHeight;
     const near = 0.1;
@@ -73,6 +108,7 @@ class Scene extends Component {
     this.camera.lookAt(this.scene.position);
 
     this.renderer = new THREE.WebGLRenderer({
+      autoClear: true,
       antialias: true,
       alpha: true,
     });
@@ -87,12 +123,12 @@ class Scene extends Component {
   /**
    * Create and render Elements
    */
-  createCardElement = () => {
+  createCardMesh = () => {
     const length = 100,
       width = 60,
       depth = 1,
       path = "img/card/",
-      format = ".jpg";
+      format = ".png";
     const url = "card" + format; // [
     //   path + "card" + format,
     //   path + "card" + format,
@@ -100,38 +136,42 @@ class Scene extends Component {
     //   path + "card" + format,
     //   path + "card" + format,
     // ]
-    const textureCard = new THREE.TextureLoader().setPath(path).load(url);
+    const texture = new THREE.TextureLoader().setPath(path).load(url);
 
-    const geometryCard = new THREE.BoxGeometry(length, width, depth);
+    const geometry = new THREE.BoxGeometry(length, width, depth);
 
     //A material need texture or a basic material
-    const materialCard = new THREE.MeshBasicMaterial({
-      map: textureCard,
-      opacity: 0,
+    const material = new THREE.MeshBasicMaterial({
+      map: texture,
+      opacity: 0.50,
     });
 
     //A Mesh need a geometry and material object
-    this.meshCard = new THREE.Mesh(geometryCard, materialCard);
+    this.meshCard = new THREE.Mesh(geometry, material);
+    this.meshCard.name = "Card";
     this.meshCard.position.x = 0;
     this.meshCard.position.y = 0;
     this.meshCard.position.z = 1050;
-
     this.scene.add(this.meshCard);
+    this.renderer.render(this.scene, this.camera);
+    geometry.dispose();
+    material.dispose();
+    texture.dispose();
   };
 
   /**
    * Create and render Elements
    */
-  createRockElements = () => {
-    const textureRock = new THREE.TextureLoader().load("img/card/rock.jpg");
-    const materialRock = new THREE.MeshBasicMaterial({
-      map: textureRock,
+  createRockMeshes = () => {
+    const texture = new THREE.TextureLoader().load("img/card/rock.jpg");
+    const material = new THREE.MeshBasicMaterial({
+      map: texture,
       opacity: 0.5,
     });
     const max = 2000;
     const maxSize = Math.floor(Math.random() * Math.floor(200));
     for (let i = 0; i < Math.floor(Math.random() * Math.floor(10)); i++) {
-      const geometryRock = new THREE.SphereBufferGeometry(
+      const geometry = new THREE.SphereBufferGeometry(
         Math.random() * Math.floor(maxSize),
         8,
         8
@@ -139,7 +179,7 @@ class Scene extends Component {
       //A material need texture or a basic material
 
       //A Mesh need a geometry and material object
-      const meshRock = new THREE.Mesh(geometryRock, materialRock);
+      const meshRock = new THREE.Mesh(geometry, material);
       meshRock.position.x = Math.floor(
         Math.random() * Math.floor(max) - window.innerWidth
       );
@@ -150,39 +190,49 @@ class Scene extends Component {
       meshRock.name = "Rock" + i;
       this.scene.add(meshRock);
       this.meshRocks.push(meshRock);
+      geometry.dispose();
     }
+    material.dispose();
+    texture.dispose();
+    this.renderer.render(this.scene, this.camera);
   };
 
-  createPlanetElement = () => {
-    const texturePlanet = new THREE.TextureLoader().load(
-      "img/card/earth-night.jpg"
-    );
-    const materialPlanet = new THREE.MeshBasicMaterial({
-      map: texturePlanet,
+  createPlanetMesh = () => {
+    const texture = new THREE.TextureLoader().load("img/card/earth-night.jpg");
+    const material = new THREE.MeshBasicMaterial({
+      map: texture,
       opacity: 1,
     });
-    const geometryPlanet = new THREE.SphereBufferGeometry(500, 20, 20);
-    this.meshPlanet = new THREE.Mesh(geometryPlanet, materialPlanet);
+    const geometry = new THREE.SphereBufferGeometry(500, 20, 20);
+    this.meshPlanet = new THREE.Mesh(geometry, material);
     this.meshPlanet.name = "Planet";
     this.meshPlanet.position.x = 500;
     this.meshPlanet.position.y = 0;
     this.meshPlanet.position.z = -1000;
     this.scene.add(this.meshPlanet);
+       this.renderer.render(this.scene, this.camera);
+    geometry.dispose();
+    material.dispose();
+    texture.dispose();
   };
 
-  createSunElement = () => {
-    const textureSun = new THREE.TextureLoader().load("img/card/sun.jpg");
-    const materialSun = new THREE.MeshBasicMaterial({
-      map: textureSun,
+  createSunMesh = () => {
+    const texture = new THREE.TextureLoader().load("img/card/sun.jpg");
+    const material = new THREE.MeshBasicMaterial({
+      map: texture,
       opacity: 1,
     });
-    const geometrySun = new THREE.SphereBufferGeometry(15000, 30, 30);
-    this.meshSun = new THREE.Mesh(geometrySun, materialSun);
+    const geometry = new THREE.SphereBufferGeometry(15000, 30, 30);
+    this.meshSun = new THREE.Mesh(geometry, material);
     this.meshSun.name = "Sun";
     this.meshSun.position.x = 15000;
     this.meshSun.position.y = 0;
     this.meshSun.position.z = -15000;
     this.scene.add(this.meshSun);
+    this.renderer.render(this.scene, this.camera);
+    geometry.dispose();
+    material.dispose();
+    texture.dispose();
   };
 
   /**
@@ -259,6 +309,7 @@ class Scene extends Component {
       this.renderer.render(this.scene, this.camera);
     }, 60);
   };
+
   /**Make the sun rotate */
   rotateSun = () => {
     setTimeout(() => {
@@ -287,6 +338,7 @@ class Scene extends Component {
           <img src="svg/close.svg" alt="return to home" />
         </NavLink>
       </div>
+     
     );
   }
 }

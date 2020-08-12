@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react";  
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import Portfolio from "./pages/portfolio/Portfolio";
@@ -11,6 +11,7 @@ import Demo from "./pages/demo/Demo"
 
 function App() {
   return (
+
       <div className="App" id="app">       
         <Switch>
           {/* de la route la plus spécifique à la plus générique */}
@@ -18,8 +19,8 @@ function App() {
           <Route path="/demo" component={Demo} />
           <Route path="/" component={Portfolio} />
         </Switch>
-        
       </div>
+
 
   );
 }

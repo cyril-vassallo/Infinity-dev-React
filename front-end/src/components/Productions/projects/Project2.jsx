@@ -7,15 +7,14 @@ function Project2({images}) {
       <>
         <div className="row my-5">
           <div className="col">
-            <h4>
-              EManager portail administration et widgets - chez Emity
-            </h4>
+            <h4>EManager portail d'administration et widgets - chez Emity</h4>
             <p className="text-primary">Septembre à décembre 2019</p>
             <p>
               Il s'agissait de répondre à la demande d'Emity. Il était question
-              de réaliser la refonte de l'administration de la plateforme web
-              EManager mais aussi de terminer les fonctionnalités de la
-              plateforme web d'Emity.
+              de réaliser la refonte de l'administration de la plateforme
+              webEManager mais aussi de terminer les fonctionnalités de la
+              plateforme web d'Emity dédié au broadcasting d’informations
+              publicitaires sur écran dynamique.
             </p>
           </div>
         </div>

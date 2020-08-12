@@ -1,6 +1,6 @@
 .header {
-  background-image: url("/img/banners/background.jpg");
-  background-color: #282c34;
+  background-image: url("/img/banners/background-0.jpg");
+  background: linear-gradient(to right, #1E1E1E, #4A4A4A);
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
@@ -15,7 +15,13 @@
 .logo {
   height: 40vmin;
   pointer-events: none;
-  opacity: 0.5;
+  /* opacity: 0.5; */
+}
+
+.header img{
+ background-color: rgba(0, 0, 0, 0.301);
+ border-radius: 25px;
+ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.575);
 }
 
 .logo:hover {
@@ -27,7 +33,7 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
+/* 
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,13 +41,19 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
+  
+  .header{
+    background-position: center;
+    background-attachment: unset;
+  }
+
   .header h2 {
     font-size: 2rem;
   }
-    .header h3 {
+  .header h3 {
     font-size: 1.1rem;
   }
 }

@@ -11,24 +11,22 @@ class About extends Component {
           <div className="col mb-5">
             <h3 className="my-5 introduction">
               Développeur web fullstack, je m’appuie sur les frameworks Symfony,
-              la librairie React et le langage SQL. Je suis doté d’une
-              grande autonomie et du sens du code organisé.
+              la librairie React et le langage SQL. Je suis doté d’une grande
+              autonomie et du sens du code organisé.
             </h3>
-              <h3 className="my-5 text-primary">Profil</h3>
+            <h3 className="my-5 text-primary">Profil</h3>
             <div className="profil">
               <p>
-                <img src="img/photo.jpg" alt="profil"/>Je suis développeur fullstack sur les langages
-                Javascript et PHP. Je suis ouvert aux propositions de mission en
-                frontend, backend ou fullstack.
+                <img src="img/photo.jpg" alt="profil" />
+                Je suis développeur web fullstack sur les langages Javascript et
+                PHP. Je suis ouvert aux propositions de mission en frontend,
+                backend ou fullstack.
               </p>
               <p>
-                Je suis passionné en développement web. J'ai acquis une solide
-                base de douze mois de pratique de PHP, JavaScript et SQL durant ma
-                formation intensive de Concepteur et Développeur d'Application. Je
+                Passionné de développement web, je suis développeur depuis deux
+                ans. J'ai acquis de solides bases en PHP, JavaScript et SQL. Je
                 me suis orienté vers la maîtrise du framework Symfony, la
-                librairie React et très récemment Nest avec node.js. Je suis
-                également ouvert aux autres frameworks PHP et Javascript
-                avec ou sans ORM.
+                librairie React et très récemment Nest avec node.js.
               </p>
               <p>
                 Détenteur d'un titre professionnel de{" "}
@@ -43,18 +41,19 @@ class About extends Component {
                     niveau II
                   </span>
                 </a>{" "}
-                équivalent Licence/Master, je développe depuis deux ans. Je suis
-                formé aux technologies frontend et backend en Javascript et PHP.
-                Je suis aussi capable de concevoir, développer et deployer un
-                projet. Je peux intervenir sur du frontend en React Html/CSS/SCSS,
-                sur du backend sur Symfony 4/5 ou Nest et sur des bases de données
-                en SQL.
+                équivalent Licence/Master je suis formé aux technologies
+                frontend et backend en Javascript et PHP. Je suis aussi capable
+                de concevoir, développer et déployer un projet web. Coté
+                frontend, je suis opérationnel pour intervenir en intégration
+                avec du HTML, CSS, SCSS, javascript, bootstrap et React. Coté
+                backend, je peux travailler des projets en Api REST
+                ou en MVC avec Symfony ⅘ et sur des bases de données en SQL.
               </p>
               <p>
                 En suivant ce lien{" "}
-                <NavLink to="/downloads">Téléchargements</NavLink>, vous trouverez un CV au format
-                pdf et d'autres documents pour illustrer mon parcours de
-                développeur.
+                <NavLink to="/downloads">Téléchargements</NavLink>, vous
+                trouverez un CV au format pdf et d'autres documents pour
+                illustrer mon parcours de développeur.
               </p>
             </div>
           </div>

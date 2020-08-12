@@ -19,11 +19,17 @@ class Map extends Component {
     this.road = null;
     this.city = null;
     this.polylinePath = [];
+    this.pathColors = ["blue", "green","red","purple"];
+    this.countPaths = 0;
     this.state = {
       route: null,
     };
   }
 
+  /**
+   * React
+   * Execute just after the component has been mounted
+   */
   componentDidMount = () => {
     this.select = document.getElementById("selection");
     document
@@ -33,6 +39,9 @@ class Map extends Component {
     this.displayMarker("Point de départ: Résidence de Cyril");
   };
 
+  /**
+   * Display map with Leaflet
+   */
   displayMap = () => {
     const token = Conf.api["map-box"].APPID;
     this.map = Leaflet.map("map").setView([this.longitude, this.latitude], 13);
@@ -51,6 +60,14 @@ class Map extends Component {
     ).addTo(this.map);
   };
 
+
+  /**
+   * Display Marker method 
+   * @param {string} popup 
+   * @param {color} color 
+   * @param {longitude} longitude 
+   * @param {latitude} latitude 
+   */
   displayMarker = (
     popup = "Marker",
     color = "blue",
@@ -69,15 +86,28 @@ class Map extends Component {
     marker.bindPopup(popup).openPopup();
   };
 
+  /**
+   * Draw the polyline according to polylinePath variable
+   */
   displayPolylinePath = () => {
-    // create a Blue polyline from an array of LatLng points
     const polyline = Leaflet.polyline(this.polylinePath, {
-      color: "blue",
+      color: this.pathColors[this.countPaths],
     }).addTo(this.map);
-    // zoom the map to the polyline
+ 
     this.map.fitBounds(polyline.getBounds());
+    if(this.countPaths === this.pathColors.length-1){
+      this.countPaths = 0;
+    }else{
+      this.countPaths++;
+    }
+    
   };
 
+
+  /**
+   * Called when fetchMapQuest success
+   * @param {array} shapePoints 
+   */
   fetchMapQuestSuccess = (shapePoints) => {
     const newPolylinePath = [];
     for (let i = 0; i < shapePoints.length; i += 2) {
@@ -96,6 +126,9 @@ class Map extends Component {
     this.displayPolylinePath();
   };
 
+  /**
+   * Fetch autocomplete api 
+   */
   autocompleteAdresse = async () => {
     let inputValue = document.getElementById("adresse").value;
 
@@ -115,6 +148,11 @@ class Map extends Component {
     }
   };
 
+/**
+ * Display selection and fill filed when click on one item
+ * Called when fetch success 
+ * @param {object} response 
+ */
   displaySelection = (response) => {
     if (Object.keys(response.features).length > 0) {
       this.select.style.display = "block";
@@ -154,6 +192,10 @@ class Map extends Component {
     }
   };
 
+  /**
+   * Event on click
+   * Fetch MapQuest api to get the route direction and then related shapes according
+   */
   handleClickRoute = async () => {
     this.road = document.getElementById("resAdresse").value;
     this.zipCode = document.getElementById("CP").value;
@@ -172,12 +214,20 @@ class Map extends Component {
     }
   };
 
+  /**
+   * Set a new route data in state
+   * @param {object} data  
+   */
   displayNewRouteData = ({ route }) => {
     const copyState = { ...this.state };
     copyState.route = route;
     this.setState(copyState);
   };
 
+  /**
+   * React 
+   * Render component
+   */
   render() {
     return (
       <div className="container panel">
@@ -185,16 +235,18 @@ class Map extends Component {
           <div className="col">
             <h3 className="text-primary">Widget Itinéraire</h3>
             <p className="my-5">
-              Leaflet, MapQuest et l'API adresse.gouv une combinaison d'api et de
+              Leaflet, MapQuest et API adresse.gouv. Une combinaison d'api et de
               composants gratuits pour tracer vos itinéraires.
             </p>
           </div>
         </div>
         <div className="row my-5">
           <div className="col">
+            <p>Activité en régie ?</p>
             <p>
-              Utilisez le champ d'autocomplétion pour tracer les itinéraires de
-              chez moi à vos établissements d'entreprise.
+              Pour avoir une vue d'ensemble, utilisez le champ d'autocomplétion
+              pour tracer les itinéraires de chez moi à vos établissements
+              d'entreprise ou ceux de vos clients.
             </p>
             <input
               className="form-control"

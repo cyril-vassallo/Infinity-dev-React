@@ -8,14 +8,14 @@ function Project1({images}) {
       <>
         <div className="row my-5">
           <div className="col">
-            <h4>Risques psycho-sociaux au travail - Formation continue</h4>
+            <h4>Risques psychosociaux au travail (RPS) - Formation continue</h4>
             <p className="text-primary">Avril à Juillet 2019</p>
             <p>
               Il s'agissait de répondre à la demande de CSHCT de l'Afpa. Il
               était question de mettre à disposition sur serveur mutualisé un
-              gestionnaire de questionnaires en ligne permettant d'intérroger de
+              gestionnaire de questionnaires en ligne permettant d'interroger de
               façon anonyme les collaborateurs de l'Afpa sur le territoire
-              national au sujet des risques psycho-sociaux (RPS) au travail.
+              national au sujet des risques psychosociaux au travail.
             </p>
           </div>
         </div>

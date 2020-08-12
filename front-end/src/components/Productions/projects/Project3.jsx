@@ -7,18 +7,18 @@ function Project3() {
       <>
         <div className="row my-5">
           <div className="col">
-            <h4>E-learning Symfony 4 - Infinity-dev v1</h4>
+            <h4> Infinity-dev v1 - E-learning Symfony 4</h4>
             <p className="text-primary">Juillet à décembre 2019</p>
             <p>
               Il s'agissait d'apprendre à utiliser le framework Symfony 4. J'ai
               donc pris en main le framework en développant un site web exposant
               mes compétences techniques au travers d'un cv dynamique dont les
-              données étaient récupérés dans une base de données MySQL de ma
-              conception. Le site était plus une démonstration backend. Effet le
-              frontend rendu avec twig et bootstrap4 était peu travaillé et
-              disposait d'un javascript personnalisé très minimaliste. J'ai
-              aussi fait l'experience du déploiement sur serveur mutualisé. Le
-              site a finalement été remplacé par celui ci.
+              données étaient récupérés dans une base de données MySQLde ma
+              conception. Ce site était plutôt une démonstration backend. En
+              effet le frontend rendu avec twig et bootstrap 4 était peu
+              travaillé et disposait d'un javascript personnalisé très
+              minimaliste. J'ai aussi fait l'expérience du déploiement sur
+              serveur mutualisé. Ce site a finalement été remplacé par celui.
             </p>
           </div>
         </div>

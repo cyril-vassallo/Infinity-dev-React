@@ -10,7 +10,7 @@ class Timeline extends Component {
               <div className="col-md-6">
                 <h3>DÉVELOPPEUR WEB FULLSTACK PHP ET JAVASCRIPT</h3>
                 <p className="font-weight-bolder text-primary">
-                  Sept-Dec 2019 Emity
+                  2019 Emity
                 </p>
                 <p>
                   Refonte du back-office administration de la plateforme web{" "}

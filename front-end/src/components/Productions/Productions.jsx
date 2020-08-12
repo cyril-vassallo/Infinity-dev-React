@@ -6,10 +6,13 @@ import "./productions.css";
 import FetchData from "./../../services/FetchData";
 
 class Productions extends Component {
-  state = {
-    data: null,
-    error: null,
-  };
+  constructor(props){
+  super(props);
+  this.state = {
+      data: null,
+      error: null,
+    };
+  }
 
   componentDidMount = async () => {
     const fetchData = new FetchData();
@@ -39,6 +42,8 @@ class Productions extends Component {
         <Banner
           title="Portfolio des productions"
           background="background-9.jpg"
+          position={3}
+          handleMouseEnter={this.props.handleMouseEnter}
         />
         <h3 className="text-center my-5 text-primary">
           Synopsis des productions

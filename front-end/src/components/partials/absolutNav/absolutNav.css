@@ -28,7 +28,7 @@
 }
 
 .subNav .box1 .pipe {
-  margin:auto;
+  margin: auto;
   background-color: white;
   width: 5px;
   height: 45px;
@@ -100,7 +100,6 @@
   color: rgba(255, 255, 255, 0.85);
   position: fixed;
   z-index: 5002;
-
 }
 
 .arrow:hover {
@@ -112,9 +111,10 @@
   width: 10px;
 }
 
-
 @media screen and (max-width: 425px) {
-
+  .subNav {
+    min-height: calc(100vh + 10vh);
+  }
   .subNav .close {
     padding: 0;
     width: 40px;
@@ -122,95 +122,34 @@
   }
 
   .arrow {
-    background-color: rgba(0, 0, 0, 0.90);
+    background-color: rgba(0, 0, 0, 0.9);
     color: white;
-    min-width:100%;
+    min-width: 100%;
   }
 
   .arrow:hover {
     font-size: bolder;
   }
 
+  .subNav .box1 .pipe {
+    height: 15px;
+  }
 
+  .subNav .box2 .space {
+    height: 15px;
+  }
 }
 
+@media screen and (max-height: 425px) {
+  .subNav {
+    min-height: calc(100vh + 10vh);
+  }
 
-/* Burger */
-/* 
-.subNav .burger {
-  width: 50px;
+  .subNav .box1 .pipe {
+    height: 15px;
+  }
+
+  .subNav .box2 .space {
+    height: 15px;
+  }
 }
-
-.subNav .burger .horizontalPipeActive {
-  height: 6px;
-  background-color: rgba(88, 88, 88, 0.4);
-  border-radius: 2px;
-  box-shadow: 2px 2px 2px black;
-}
-
-.subNav .burger .horizontalPipeActive {
-  height: 6px;
-  background-color: white;
-  border-radius: 2px;
-  box-shadow: 2px 2px 2px black;
-}
-
-.subNav .burger .horizontalSpace {
-  height: 6px;
-}
-
-Close cross 
-.subNav .closeCross {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-}
-
-.subNav .closeCross .crossCircle {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 3px solid rgba(88, 88, 88);
-  box-shadow: 2px 2px 2px black;
-}
-
-.subNav .closeCross .crossCircleActive {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 2px 2px 2px black;
-}
-
-.subNav .closeCross .squareRight {
-  position: absolute;
-  width: 10px;
-  border-top:3px solid rgba(88, 88, 88);
-  transform: rotate(45deg);
-}
-
-.subNav .closeCross .squareLeft {
-  position: absolute;
-  width: 10px;
-  border-bottom:3px solid rgba(88, 88, 88);
-  transform: rotate(-45deg);
-}
-
-.subNav .closeCross .squareRightActive {
-  position: absolute;
-  width: 10px;
-  border-top:3px solid white;
-  transform: rotate(45deg);
-}
-
-.subNav .closeCross .squareLeftActive {
-  position: absolute;
-  width: 10px;
-  border-bottom:3px solid white;
-  transform: rotate(-45deg);
-} */

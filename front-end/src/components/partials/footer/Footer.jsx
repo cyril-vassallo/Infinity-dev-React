@@ -4,7 +4,7 @@ import "./footer.css";
 class Footer extends Component {
     render() {
         return (
-          <div className="footer" id="footer">
+          <div className="container-fluid footer" id="footer">
             <div className="row">
               <div className="col text-center">
                 <a href="#app">

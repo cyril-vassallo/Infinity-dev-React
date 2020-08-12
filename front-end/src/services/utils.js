@@ -72,4 +72,5 @@ export function closeFullscreen() {
   } else if (document.msExitFullscreen) { /* IE/Edge */
     document.msExitFullscreen();
   }
+
 }

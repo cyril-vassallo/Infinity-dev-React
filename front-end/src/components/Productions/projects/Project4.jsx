@@ -7,7 +7,7 @@ function Project4() {
     <>
       <div className="row my-5">
         <div className="col">
-          <h4>E-learning Symfony 4 - Infinity Booking Adminstration</h4>
+          <h4>Infinity Booking Adminstration - E-learning Symfony 4 -</h4>
           <p className="text-primary">Décembre 2019</p>
           <p>
             Il s'agissait d'approfondir la maÎtrise du framework Symfony 4 en
@@ -20,7 +20,7 @@ function Project4() {
           <h5 className="text-success">Environnement Technique</h5>
           <p>
             Symfony4, PHP, Apache2, Javascript, SQL, Jquery, Twig, l'ORM
-            Doctrine, Bootstrap4, Html5/CSS, SASS, Webpack encore.
+            Doctrine, Bootstrap4, Html5/CSS, SCSS, Webpack encore.
           </p>
           <h5 className="text-success">Les fonctionnalités</h5>
           <ul>
