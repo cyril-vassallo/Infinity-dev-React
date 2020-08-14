@@ -1,0 +1,17 @@
+.products .title {
+    text-shadow: 2px 2px 2px black;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    font-size: 2rem;
+}
+
+.products .description {
+    text-shadow: 2px 2px 2px black;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}

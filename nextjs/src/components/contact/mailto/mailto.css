@@ -1,0 +1,10 @@
+.contact .flat-icon {
+    width: 45px;
+    border: 3px solid rgba(0,0,0,0);
+    
+}
+
+.contact .flat-icon:hover {
+    border: 3px solid rgb(19, 80, 248);
+    border-radius: 10px;
+}

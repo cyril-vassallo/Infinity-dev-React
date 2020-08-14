@@ -1,0 +1,9 @@
+video{
+  width:100%
+}
+
+@media screen and (max-width: 425px) {
+  .project .col-md-6 {
+    min-height: unset;
+  }
+}

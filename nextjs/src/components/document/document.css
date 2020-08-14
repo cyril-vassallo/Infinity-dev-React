@@ -1,0 +1,21 @@
+.document {
+background-image: url("/img/banners/background-10.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  padding:auto;
+  border-radius:15px;
+}
+
+
+.document .title, .document .description {
+     background-color: rgba(0, 0, 0, 0.80);
+     padding: 15px;
+     margin:15px;
+}
+
+@media screen and (max-width: 425px ){
+    .document img {
+        width: 80%;
+    }
+  
+}

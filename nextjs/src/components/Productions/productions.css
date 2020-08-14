@@ -1,0 +1,12 @@
+.productions .presentation {
+  width: 60%;
+  height: 800px;
+}
+
+@media screen and (max-width: 768px) {
+  .productions .presentation {
+    width: 80%;
+    padding: 0px;
+    height:250px
+  }
+}

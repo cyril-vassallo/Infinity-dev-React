@@ -1,0 +1,38 @@
+.widget {
+    /*background-image: url("/img/background-weather.jpg");*/
+    color:white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+    position: relative;
+    overflow: hidden;
+    max-width:800px;
+    background-color: rgba(0, 0, 0, 0.7); ;
+   
+}
+
+.widget .city{
+    font-size: 10rem;
+}
+
+.widget p  {
+    font-size: 1.2rem;
+    text-shadow: 3px 3px 3px black; 
+}
+
+
+.widget .col img{
+    width: 10rem;
+}
+
+
+.widget>img{
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    
+}
+
+
+.widget .city, .widget .state {
+    font-size: 2rem;
+}

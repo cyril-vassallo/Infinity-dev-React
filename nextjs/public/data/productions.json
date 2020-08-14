@@ -1,0 +1,93 @@
+{
+  "synopsis": [
+    {
+      "title": "",
+      "path": "/img/products/auto-formations/crm.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/auto-formations/infinity-booking.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/auto-formations/infinity-booking-admin.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/emity/admin-emity.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/emity/meteo.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/emity/rss.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/emity/templates.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/rps/rps.jpg",
+      "description": ""
+    }
+  ],
+  "rps": [
+    {
+      "title": "",
+      "path": "/img/products/rps/rps.jpg",
+      "description": ""
+    },
+    {
+      "title": "Gestion des utilisateurs",
+      "path": "/img/products/rps/rps-administrateurs.jpg",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/rps/rps-connexion.jpg",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/rps/rps-code.jpg",
+      "description": ""
+    }
+  ],
+  "emity": [
+    {
+      "title": "",
+      "path": "/img/products/emity/admin-emity.png",
+      "description": ""
+    },
+    {
+      "title": "Flux RSS",
+      "path": "/img/products/emity/rss.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/emity/weather.png",
+      "description": ""
+    },
+    {
+      "title": "Api Info-transport",
+      "path": "/img/products/emity/info-transport.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/emity/templates.png",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+
+#web-gl-scene {
+  background:url("/img/card/milkyway.jpg")  no-repeat center center;
+  background-size: cover;
+    /* max-width:100% */
+}
+
+/* #web-gl-scene canvas {
+  max-width:100%
+} */
+
+.scene{
+  padding: 0;
+}
+
+
+#web-gl-scene img{
+ position: fixed;
+ width: 50px;
+ top: 25px;
+ left:25px;
+}
