@@ -5,7 +5,7 @@ class Navigation extends Component {
   constructor(props) {
     super(props);
     this.handleScroll = null;
-    this.prevScrollPos = window.pageYOffset;
+    this.prevScrollPos = null;
   }
 
   handleScrollFunction = () => {
@@ -20,6 +20,7 @@ class Navigation extends Component {
   };
 
   componentDidMount = () => {
+    this.prevScrollPos = window.pageYOffset;
     this.handleScroll = window.addEventListener(
       "scroll",
       this.handleScrollFunction

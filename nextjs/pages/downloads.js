@@ -8,14 +8,15 @@ import Footer from "../src/components/partials/footer/Footer";
 class Downloads extends Component {
     constructor(){
         super()
-        this.fetchData = new FetchData();
+        this.fetchData = null;
         this.state = {
           documents: null
         }
     }
 
     componentDidMount =  async() => {
-        await this.fetchData.getData(this.fetchSuccess, "documents");
+      this.fetchData =  new FetchData();
+      await this.fetchData.getData(this.fetchSuccess, "documents");
     }
 
     fetchSuccess = ({documents}) => {
