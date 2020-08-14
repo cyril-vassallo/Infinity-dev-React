@@ -1,0 +1,155 @@
+.subNav {
+  position: fixed;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 5001;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Chrono  */
+.subNav .box1 {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subNav .box1 .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px black;
+}
+
+.subNav .box1 .pipe {
+  margin: auto;
+  background-color: white;
+  width: 5px;
+  height: 45px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.subNav .box1 .subCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.subNav .box1 .subCircleActive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background: linear-gradient(rgb(0, 153, 255), white);
+  z-index: 10;
+}
+
+.subNav .box1 .innerCircle {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+/* Links */
+.subNav .box2 {
+  margin: 5px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.subNav .box2 .space {
+  height: 45px;
+}
+
+.subNav .box2 .nav {
+  padding-top: 3px;
+  color: white;
+  height: 40px;
+}
+.subNav .box2 .navActive {
+  padding-top: 3px;
+  color: rgb(0, 153, 255);
+  height: 40px;
+  font-weight: bolder;
+}
+
+.subNav .close {
+  padding: 0;
+  width: 60px;
+  margin: 60px;
+}
+
+.subNav .box {
+  display: flex;
+}
+
+.arrow {
+  padding-left: 10px;
+  width: auto;
+  color: rgba(255, 255, 255, 0.85);
+  position: fixed;
+  z-index: 5002;
+}
+
+.arrow:hover {
+  font-weight: 600;
+  color: white;
+}
+
+.arrow img {
+  width: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .subNav {
+    min-height: calc(100vh + 10vh);
+  }
+  .subNav .close {
+    padding: 0;
+    width: 40px;
+    margin: 5px;
+  }
+
+  .arrow {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    min-width: 100%;
+  }
+
+  .arrow:hover {
+    font-size: bolder;
+  }
+
+  .subNav .box1 .pipe {
+    height: 15px;
+  }
+
+  .subNav .box2 .space {
+    height: 15px;
+  }
+}
+
+@media screen and (max-height: 425px) {
+  .subNav {
+    min-height: calc(100vh + 10vh);
+  }
+
+  .subNav .box1 .pipe {
+    height: 15px;
+  }
+
+  .subNav .box2 .space {
+    height: 15px;
+  }
+}

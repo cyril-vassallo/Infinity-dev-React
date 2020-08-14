@@ -1,0 +1,35 @@
+.banner {
+  margin-top: 50px;
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner img {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.banner .col {
+  position: relative;
+  padding: 0;
+}
+
+.banner h2 {
+  padding-top: 150px;
+  color: rgb(255, 255, 255);
+  text-shadow: 3px 3px 3px black;
+  font-size: 3.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .banner h2 {
+    padding-top: 50px;
+    font-size: 2rem;
+  }
+  .banner {
+    height: 250px;
+  }
+}
