@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Presentation from "../presentation/Presentation";
-import Banner from "../partials/banner/Banner";
+import Banner from "../banner/Banner";
 import Projects from "./projects/Projects";
 
 import FetchData from "./../../services/FetchData";

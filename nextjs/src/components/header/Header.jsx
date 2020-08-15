@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PlayerAudio from "../../players/audio/PlayerAudio";
+import PlayerAudio from "../players/audio/PlayerAudio";
 import Typewriter from "typewriter-effect";
 
 class Header extends Component {

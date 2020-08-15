@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Banner from "../partials/banner/Banner";
+import Banner from "../banner/Banner";
 import Mailto from "./mailto/Mailto";
 
 class Contact extends Component {

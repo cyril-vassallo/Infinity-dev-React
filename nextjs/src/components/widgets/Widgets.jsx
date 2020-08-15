@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Weather from '../weather/Weather';
 //import Map from '../map/Map';
-import Banner from '../partials/banner/Banner';
+import Banner from '../banner/Banner';
 import Card from '../card/Card';
 
 class Widgets extends Component {

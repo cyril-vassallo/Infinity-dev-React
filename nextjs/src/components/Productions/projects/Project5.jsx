@@ -1,5 +1,5 @@
 import React from "react";
-import Spacer from "../../partials/spacer/Spacer";
+import Spacer from "../../spacer/Spacer";
 import YoutubePlayer from "../../players/video/YoutubePlayer";
 
 function Project5() {

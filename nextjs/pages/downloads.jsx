@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Banner from "../src/components/partials/banner/Banner";
+import Banner from "../src/components/banner/Banner";
 import Document from "../src/components/document/Document";
 import FetchData from '../src/services/FetchData';
-import Navigation from '../src/components/partials/nav/Navigation';
-import Footer from "../src/components/partials/footer/Footer";
+import Navigation from '../src/components/navigation/Navigation';
+import Footer from "../src/components/footer/Footer";
 
 class Downloads extends Component {
     constructor(){

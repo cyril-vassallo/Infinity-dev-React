@@ -1,5 +1,5 @@
 import React from "react";
-import Spacer from "../../partials/spacer/Spacer";
+import Spacer from "../../spacer/Spacer";
 import Presentation from "../../presentation/Presentation";
 
 function Project2({images}) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Banner from '../partials/banner/Banner';
+import Banner from '../banner/Banner';
 import Timeline from './timeline/Timeline';
 
 

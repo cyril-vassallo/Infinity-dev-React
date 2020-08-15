@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {fadeInEffect, fadeOutEffect} from './../../../services/utils'
+import {fadeInEffect, fadeOutEffect} from './../../services/utils'
 
 function Spacer({ spacerNumber = "0" }) {
   /**

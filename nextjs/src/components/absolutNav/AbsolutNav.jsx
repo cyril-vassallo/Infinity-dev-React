@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fadeOutEffect, fadeInEffect } from "./../../../services/utils";
+import { fadeOutEffect, fadeInEffect } from "../../services/utils";
 
 class AbsolutNav extends Component {
   constructor(props) {
