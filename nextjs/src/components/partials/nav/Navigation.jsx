@@ -37,9 +37,15 @@ class Navigation extends Component {
     return (
       <nav className="container" id="navbar">
         <div className="row">
-          <Link href="/">Infinity Dev</Link>
-          <Link href="/downloads">Téléchargement</Link>
-          <Link href="/demo">Démo 3D</Link>
+          <Link href="/">
+            <a>Infinity Dev</a>
+          </Link>
+          <Link href="/downloads">
+            <a>Téléchargement</a>
+          </Link>
+          <Link href="/demo">
+            <a>Démo 3D</a>
+          </Link>
         </div>
       </nav>
     );

@@ -5,6 +5,7 @@ import "../src/bootstrap/bootstrap.cyborg.min.css";
 import "../src/components/Productions/productions.css";
 import "../src/components/Productions/projects/projects.css";
 import "../src/components/three/planet/planet.css"
+import "../src/components/three/scene/scene.css"
 import "../src/components/weather/widget/widget.css"
 import "../src/components/presentation/presentation.css"
 import "../src/components/map/map.css"

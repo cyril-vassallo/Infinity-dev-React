@@ -1,2 +1,4 @@
+# ignore files and folders
 node_modules/
 .next/
+ngrok

@@ -51,7 +51,7 @@ class About extends Component {
               </p>
               <p>
                 En suivant ce lien{" "}
-                <Link href="/downloads">Téléchargements</Link>, vous
+                <Link href="/downloads"><a>Téléchargements</a></Link>, vous
                 trouverez un CV au format pdf et d'autres documents pour
                 illustrer mon parcours de développeur.
               </p>

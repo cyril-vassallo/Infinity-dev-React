@@ -8,8 +8,8 @@ class Map extends Component {
   constructor(props) {
     super(props);
     this.select = null;
-    this.autocomplete = new FetchAutocomplete();
-    this.mapQuest = new FetchMapQuest();
+    this.autocomplete = null;
+    this.mapQuest = null;
     this.map = null;
     this.longitude = 43.64;
     this.latitude = 3.8635;
@@ -29,6 +29,8 @@ class Map extends Component {
    * Execute just after the component has been mounted
    */
   componentDidMount = () => {
+    this.autocomplete = new FetchAutocomplete();
+    this.mapQuest = new FetchMapQuest();
     this.select = document.getElementById("selection");
     document
       .getElementById("adresse")
@@ -74,10 +76,10 @@ class Map extends Component {
   ) => {
     //delete original src from Leaflet icon in prototype
     delete Leaflet.Icon.Default.prototype._getIconUrl;
-    //Load new icon in local leaflet bundle in module for different devices
+    // Load new icon in local leaflet bundle in module for different devices
     Leaflet.Icon.Default.mergeOptions({
-      iconRetinaUrl: require(`leaflet/dist/images/marker-icon-2x-${color}.png`),
-      iconUrl: require(`leaflet/dist/images/marker-icon-${color}.png`),
+      iconRetinaUrl: require(`${Conf.app.DOMAINE}img/leaflet/marker-icon-2x-${color}.png`),
+      iconUrl: require(`${Conf.app.DOMAINE}leaflet/dist/images/marker-icon-${color}.png`),
       shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
     });
     const marker = Leaflet.marker([longitude, latitude]).addTo(this.map);
