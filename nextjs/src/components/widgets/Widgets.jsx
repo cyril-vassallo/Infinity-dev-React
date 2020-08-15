@@ -20,7 +20,7 @@ class Widgets extends Component {
             />
             <Card />
             <Weather />
-            <Map />
+            {/* <Map /> */}
           </div>
         );
     }
