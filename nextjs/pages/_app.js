@@ -1,5 +1,4 @@
 import "../src/App.css";
-import "../src/index.css";
 import "../src/components/about/about.css";
 import "../src/bootstrap/bootstrap.cyborg.min.css";
 import "../src/components/Productions/productions.css";

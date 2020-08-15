@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import Skills from "./../../components/skills/Skills";
-import Career from "./../../components/career/Career";
-import Contact from "./../../components/contact/Contact";
-import About from "../../components/about/About";
-import Widgets from "../../components/widgets/Widgets";
-import Productions from "./../../components/Productions/Productions";
-import Header from "../../components/partials/header/Header";
-import AbsolutNav from "./../../components/partials/absolutNav/AbsolutNav";
-import Footer from "./../../components/partials/footer/Footer";
+import Skills from "./../src/components/skills/Skills";
+import Career from "./../src/components/career/Career";
+import Contact from "./../src/components/contact/Contact";
+import About from "../src/components/about/About";
+import Widgets from "../src/components/widgets/Widgets";
+import Productions from "./../src/components/Productions/Productions";
+import Header from "../src/components/partials/header/Header";
+import AbsolutNav from "./../src/components/partials/absolutNav/AbsolutNav";
+import Footer from "./../src/components/partials/footer/Footer";
 
-class Portfolio extends Component {
+class Index extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       subNavPosition: 0,
     };
   }
 
-  handleMouseEnter = position => {
+  handleMouseEnter = (position) => {
     const copyState = { ...this.state };
     copyState.subNavPosition = position;
     this.setState(copyState);
@@ -25,7 +25,7 @@ class Portfolio extends Component {
 
   render() {
     return (
-      <main className="portfolio">
+      <main className="Index">
         <AbsolutNav position={this.state.subNavPosition} />
         <Header handleMouseEnter={this.handleMouseEnter} />
         <About handleMouseEnter={this.handleMouseEnter} />
@@ -40,4 +40,4 @@ class Portfolio extends Component {
   }
 }
 
-export default Portfolio;
+export default Index;
