@@ -16,8 +16,8 @@
     "typewriter-effect": "^2.13.1"
   },
   "scripts": {
-    "dev": "next dev --port 3000",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next",
+    "build": "next build && next export",
+    "start": "serve ./out"
   }
 }
