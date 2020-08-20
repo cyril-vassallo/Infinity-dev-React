@@ -8,6 +8,7 @@ import Productions from "../src/components/Productions/Productions";
 import Header from "../src/components/header/Header";
 import AbsolutNav from "../src/components/absolutNav/AbsolutNav";
 import Footer from "../src/components/footer/Footer";
+import AOS from "aos";
 
 class Index extends Component {
   constructor() {
@@ -17,6 +18,10 @@ class Index extends Component {
     };
   }
 
+  componentDidMount = () => {
+    AOS.init();
+  }
+  
   handleMouseEnter = (position) => {
     const copyState = { ...this.state };
     copyState.subNavPosition = position;

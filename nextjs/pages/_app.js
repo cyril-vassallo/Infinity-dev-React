@@ -20,6 +20,7 @@ import "../src/components/banner/banner.css";
 import "../src/components/header/header.css";
 import "../src/components/navigation/navigation.css";
 import "../src/components/spacer/spacer.css";
+import "aos/dist/aos.css";
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {

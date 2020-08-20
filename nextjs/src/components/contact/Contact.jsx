@@ -9,7 +9,7 @@ class Contact extends Component {
   }
   render() {
     return (
-      <div className="contact" id="contact">
+      <div  className="contact" id="contact">
         <Banner
           title="Contact"
           background="background-7.jpg"

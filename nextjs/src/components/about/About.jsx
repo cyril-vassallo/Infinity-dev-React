@@ -6,7 +6,7 @@ class About extends Component {
   state = {};
   render() {
     return (
-      <div className="about container" id="about">
+      <div data-aos="fade-in"className="about container" id="about">
         <div className="row my-5">
           <div className="col mb-5">
             <h3 className="my-5 introduction">

@@ -52,6 +52,7 @@ class Header extends Component {
   render() {
     return (
       <header
+        data-aos="fade-in"
         className="header"
         id="header"
         onMouseEnter={this.setPosition}

@@ -16,7 +16,7 @@ class Skills extends Component {
           <Banner
             title="Développement"
             background="background-2.jpg"
-            position = {2}
+            position={2}
             handleMouseEnter={this.props.handleMouseEnter}
           />
           <div className="col">
