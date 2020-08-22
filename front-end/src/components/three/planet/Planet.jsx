@@ -200,7 +200,7 @@ class Planet extends Component {
    * React render method
    */
   render() {
-    return <div id="web-gl-planet"></div>;
+    return <div data-aos="zoom-in" data-aos-duration="3000"  id="web-gl-planet"></div>;
   }
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./header.css";
 import PlayerAudio from "../../players/audio/PlayerAudio";
 import Typewriter from "typewriter-effect";
+import AOS from "aos";
 
 class Header extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Header extends Component {
   }
 
   componentDidMount = () => {
+    AOS.init({duration: 3000})
     const options = {
       root: null,
       rootMargin: window.innerHeight + "px",
@@ -53,6 +55,7 @@ class Header extends Component {
   render() {
     return (
       <header
+        data-aos="fade-in"
         className="header"
         id="header"
         onMouseEnter={this.setPosition}

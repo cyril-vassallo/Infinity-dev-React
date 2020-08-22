@@ -1,10 +1,11 @@
 .about .profil {
-  background-image: url("/img/banners/background-0.jpg ");
+  background-image: url("/img/banners/background-5.jpg ");
   background-size: cover;
   border-radius: 25px;
   padding: 25px;
   border: 2px solid beige;
   text-shadow: 2px 2px 2px black;
+  color: white;
 }
 
 .about .profil img {
@@ -20,12 +21,13 @@
 
 @media screen and (max-width: 768px) {
   .about .introduction {
-    font-size: 2em;
+    font-size: 2rem;
   }
 
   .about .profil img {
   width: 100%;
-  float: left;
+  padding:1em;
+  float: none;
   margin: none;
   margin-bottom: 25px;
   }

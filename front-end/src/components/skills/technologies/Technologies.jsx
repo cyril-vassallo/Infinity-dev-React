@@ -8,7 +8,7 @@ class Technologies extends Component {
         <div className="row my-5">
           <div className="col">
             <h3>LANGAGES </h3>
-            <p>Javascript ES6, TypeScript, PHP7, HTML5, CSS3, SASS, SQL</p>
+            <p>Javascript ES6, PHP7, TypeScript, HTML5, CSS3, SASS, SQL</p>
           </div>
           <div className="col-md-6"></div>
         </div>
@@ -16,7 +16,10 @@ class Technologies extends Component {
           <div className="col-md-6"></div>
           <div className="col">
             <h3>FRAMEWORKS</h3>
-            <p>Nest, Symfony 4/5, React, Vue.js </p>
+            <p>
+              Frontend: Next, React, Vue.js <br />
+              Backend: Nest, Symfony 4/5
+            </p>
           </div>
         </div>
         <div className="row my-5">
@@ -35,7 +38,7 @@ class Technologies extends Component {
             <h3>ENVIRONNEMENT TECHNIQUE</h3>
             <p>
               Visual Studio Code, Postman, Swagger, MySql, PostgreSQL, Apache2,
-              node.js, SSH, Bash, git, Heroku, Photoshop, Krita, Windows, Linux,
+              node.js, SSH, Bash, git, Heroku, Netlify, Photoshop, Krita, Windows, Linux,
               MacOS
             </p>
           </div>
