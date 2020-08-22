@@ -1,5 +1,5 @@
 .about .profil {
-  background-image: url("/img/banners/background-5.jpg ");
+  background-image: url("/img/banners/background-0.jpg ");
   background-size: cover;
   border-radius: 25px;
   padding: 25px;
@@ -26,7 +26,7 @@
 
   .about .profil img {
   width: 100%;
-  padding:1em;
+  padding:2em;
   float: none;
   margin: none;
   margin-bottom: 25px;
