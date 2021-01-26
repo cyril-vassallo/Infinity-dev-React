@@ -5,7 +5,7 @@
 
 Two versions: 
  - original in front-end folder
- - The next version in next folder
+ - The next version in nextjs folder
  
  
 
