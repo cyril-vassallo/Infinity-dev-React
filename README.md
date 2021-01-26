@@ -1,4 +1,4 @@
-#  Infinity-dev. website v2 - 2020
+#  Infinity-dev - Personnal Website v2 - 2020
 
 # React Project portfolio website.
 
