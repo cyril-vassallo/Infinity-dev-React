@@ -3,6 +3,7 @@ import Weather from '../weather/Weather';
 import Map from '../map/Map';
 import Banner from '../partials/banner/Banner';
 import Card from '../card/Card';
+import Rookie from '../rookie/Rookie';
 
 class Widgets extends Component {
   constructor(props){
@@ -21,6 +22,7 @@ class Widgets extends Component {
             <Card />
             <Weather />
             <Map />
+            <Rookie />
           </div>
         );
     }

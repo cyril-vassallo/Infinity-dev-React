@@ -2,6 +2,11 @@
   "synopsis": [
     {
       "title": "",
+      "path": "/img/products/eyematch/connexion.png",
+      "description": ""
+    },
+    {
+      "title": "",
       "path": "/img/products/auto-formations/crm.png",
       "description": ""
     },
@@ -87,6 +92,33 @@
     {
       "title": "",
       "path": "/img/products/emity/templates.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/eyematch/connexion.png",
+      "description": ""
+    }
+  ],
+  "eyematch": [
+    {
+      "title": "",
+      "path": "/img/products/eyematch/accueil.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/eyematch/connexion.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/eyematch/admin-emplacement.png",
+      "description": ""
+    },
+    {
+      "title": "",
+      "path": "/img/products/eyematch/admin-recherche.png",
       "description": ""
     }
   ]
